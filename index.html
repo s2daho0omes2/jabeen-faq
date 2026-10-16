@@ -61,6 +61,30 @@
   mark{background:#fbe9b8;color:inherit;padding:0 2px;border-radius:3px}
   .empty{text-align:center;color:var(--muted);padding:50px 10px;font-size:20px}
 
+  /* overview / single category */
+  .section.collapsed .q{display:none}
+  .section.collapsed .section-head{border-bottom:0;padding-bottom:0;margin-bottom:16px}
+  .section-head.clickable{cursor:pointer}
+  .section-head.clickable:hover h2{color:var(--gold)}
+  .open-ic{color:var(--gold);font-size:12px;margin-right:8px}
+  .back{all:unset;cursor:pointer;display:inline-block;color:var(--green);font-weight:700;font-size:17px;margin:0 4px 16px;padding:8px 18px;border-radius:12px;background:var(--card);border:1px solid var(--gold-light)}
+  .back:hover{border-color:var(--gold)}
+
+  /* gallery */
+  .gallery{padding-bottom:30px}
+  .gallery .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:22px}
+  .gallery .grid a{display:block;border-radius:16px;overflow:hidden;aspect-ratio:3/2;background:var(--cream)}
+  .gallery .grid img{width:100%;height:100%;object-fit:cover;transition:.3s;display:block}
+  .gallery .grid a:hover img{transform:scale(1.04)}
+  .gallery-cta{display:inline-block;margin-top:20px;color:var(--green);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold-light);padding-bottom:3px}
+  .gallery-cta:hover{border-color:var(--gold)}
+
+  /* back to top */
+  .top{position:fixed;left:18px;bottom:18px;width:52px;height:52px;border-radius:50%;border:0;background:var(--green);color:#fff;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.2);opacity:0;visibility:hidden;transform:translateY(12px);transition:.25s;z-index:50;display:flex;align-items:center;justify-content:center}
+  .top svg{width:24px;height:24px}
+  .top.show{opacity:1;visibility:visible;transform:none}
+  .top:hover{background:var(--green-dark)}
+
   /* cta */
   .cta{background:linear-gradient(90deg,#1b4a37,#2a5e49);border-radius:24px;padding:46px 48px;display:flex;justify-content:space-between;align-items:center;gap:24px;color:#fff;margin-top:34px;flex-wrap:wrap}
   .cta h3{font-size:clamp(24px,2.6vw,36px);font-weight:800;margin-bottom:8px}
@@ -114,6 +138,19 @@
     </div>
   </div>
 
+  <div class="section gallery">
+    <div class="section-head"><h2>معرض النماذج</h2><span>صور من موقع مشروعات</span></div>
+    <div class="grid">
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener"><img loading="lazy" src="https://mashroat.com.sa/wp-content/uploads/2026/01/img40.jpg" alt="منظر جوي للمشروع"></a>
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener"><img loading="lazy" src="https://mashroat.com.sa/wp-content/uploads/2026/01/img758.jpg" alt="واجهة الفلل"></a>
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener"><img loading="lazy" src="https://mashroat.com.sa/wp-content/uploads/2026/01/img526.jpg" alt="التصميم الداخلي"></a>
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener"><img loading="lazy" src="https://mashroat.com.sa/wp-content/uploads/2026/01/img610.jpg" alt="المخطط العام"></a>
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener"><img loading="lazy" src="https://mashroat.com.sa/wp-content/uploads/2026/01/img28.jpg" alt="الفلل"></a>
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener"><img loading="lazy" src="https://mashroat.com.sa/wp-content/uploads/2026/01/img472.jpg" alt="الشوارع الداخلية"></a>
+    </div>
+    <a class="gallery-cta" href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">جميع الصور والتفاصيل على موقع مشروعات ←</a>
+  </div>
+
   <div id="faq"></div>
 
   <div class="cta">
@@ -123,6 +160,8 @@
     </div>
     <a id="survey" href="#" target="_blank" rel="noopener">إرسال سؤالك الآن ←</a>
   </div>
+
+  <button id="top" class="top" aria-label="العودة للأعلى" title="العودة للأعلى"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
   <p class="foot">هذه نسخة أولية تجريبية. الأسئلة المعروضة أمثلة فقط، وليست إجابات رسمية أو التزامات تعاقدية. تُنشر الإجابات المعتمدة بعد مراجعتها من فريق المشروع.</p>
   <div class="foot-links">
@@ -233,18 +272,19 @@ function renderCats(){
   const total = DATA.reduce((s,c)=>s+c.items.length,0);
   const all = [{id:'all',title:'جميع الأسئلة',icon:'all',count:total}, ...DATA.map(c=>({...c,count:c.items.length}))];
   catsEl.innerHTML = all.map(c=>`<div class="cat ${c.id===active?'active':''}" data-id="${c.id}"><div class="ic">${ICONS[c.icon]}</div>${c.title}<small>${plural(c.count)}</small></div>`).join('');
-  catsEl.querySelectorAll('.cat').forEach(el=>el.onclick=()=>{active=el.dataset.id;renderCats();renderFaq();});
+  catsEl.querySelectorAll('.cat').forEach(el=>el.onclick=()=>{active=el.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
 }
 
 function renderFaq(){
   const q = query.trim().toLowerCase();
+  const overview = active==='all' && !q;   // في وضع "جميع الأسئلة" تظهر العناوين مطوية فقط
   const cats = DATA.filter(c=>active==='all'||c.id===active)
     .map(c=>({...c, items:c.items.filter(i=>!q||i.q.toLowerCase().includes(q)||i.a.toLowerCase().includes(q))}))
     .filter(c=>c.items.length);
   if(!cats.length){ faqEl.innerHTML='<div class="section"><p class="empty">لا توجد نتائج مطابقة لبحثك.</p></div>'; return; }
-  faqEl.innerHTML = cats.map(c=>`
-    <div class="section">
-      <div class="section-head"><h2>${c.title}</h2><span>${plural(c.items.length)}</span></div>
+  faqEl.innerHTML = (active!=='all' ? `<button class="back" id="back">← العودة إلى جميع الأسئلة</button>` : '') + cats.map(c=>`
+    <div class="section ${overview?'collapsed':''}" data-id="${c.id}">
+      <div class="section-head ${overview?'clickable':''}"><h2>${c.title}</h2><span>${plural(c.items.length)} ${overview?'<b class="open-ic">▼</b>':''}</span></div>
       ${c.items.map(i=>`
         <div class="q ${q?'open':''}">
           <button>${hl(i.q)}<span class="chev">▼</span></button>
@@ -255,7 +295,14 @@ function renderFaq(){
         </div>`).join('')}
     </div>`).join('');
   faqEl.querySelectorAll('.q button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+  faqEl.querySelectorAll('.section-head.clickable').forEach(h=>h.onclick=()=>{active=h.parentElement.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
+  const back=document.getElementById('back'); if(back) back.onclick=()=>{active='all';renderCats();renderFaq();catsEl.scrollIntoView({behavior:'smooth',block:'start'});};
 }
+
+/* زر العودة للأعلى */
+const topBtn=document.getElementById('top');
+addEventListener('scroll',()=>topBtn.classList.toggle('show',scrollY>500),{passive:true});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
 
 document.getElementById('search').addEventListener('input',e=>{query=e.target.value;renderFaq();});
 renderCats(); renderFaq();
