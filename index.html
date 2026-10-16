@@ -36,8 +36,8 @@
   .cats{background:var(--card);border-radius:24px;padding:30px 44px 26px;margin-bottom:28px;box-shadow:0 2px 14px rgba(0,0,0,.04)}
   .cats h2{color:var(--green);font-size:clamp(20px,2vw,26px);font-weight:800;margin-bottom:6px}
   .cats .hint{color:var(--muted);font-size:15px;margin-bottom:18px}
-  .cats ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 32px}
-  .cat{display:flex;align-items:center;gap:12px;padding:11px 10px;border-radius:12px;cursor:pointer;color:var(--green);font-weight:700;font-size:18px;transition:.15s;border:1px solid transparent}
+  .cats ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 24px}
+  .cat{min-width:0;display:flex;align-items:center;gap:12px;padding:11px 10px;border-radius:12px;cursor:pointer;color:var(--green);font-weight:700;font-size:18px;transition:.15s;border:1px solid transparent}
   .cat .ic{color:var(--gold);display:flex;flex:none}
   .cat .ic svg{width:22px;height:22px}
   .cat .t{flex:1;border-bottom:1px solid transparent}
@@ -300,7 +300,7 @@ function renderCats(){
   const total = DATA.reduce((s,c)=>s+c.items.length,0);
   const all = [{id:'all',title:'جميع الأسئلة',icon:'all',count:total}, ...DATA.map(c=>({...c,count:c.items.length}))];
   catsEl.innerHTML = `<h2>محتويات الدليل</h2><p class="hint">اختر الموضوع الذي تبحث عنه لعرض أسئلته.</p><ul>` +
-    all.map(c=>`<li class="cat ${c.id===active?'active':''}" data-id="${c.id}"><span class="chev">❯</span><span class="ic">${ICONS[c.icon]}</span><span class="t">${c.title}</span><small>${plural(c.count)}</small></li>`).join('') + `</ul>`;
+    all.map(c=>`<li class="cat ${c.id===active?'active':''}" data-id="${c.id}"><span class="chev">❯</span><span class="ic">${ICONS[c.icon]}</span><span class="t">${c.title}</span></li>`).join('') + `</ul>`;
   catsEl.querySelectorAll('.cat').forEach(el=>el.onclick=()=>{active=el.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
 }
 
