@@ -72,9 +72,10 @@
   .info p small{display:block;color:var(--muted);font-weight:400;font-size:15px;margin-top:4px}
   .info a{color:#fff;background:var(--green);text-decoration:none;font-weight:700;padding:13px 26px;border-radius:12px;white-space:nowrap;font-size:17px}
   .info a:hover{background:var(--green-dark)}
-  .foot-link{text-align:center;margin-top:18px}
-  .foot-link a{color:var(--green);font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--gold-light);padding-bottom:3px}
-  .foot-link a:hover{border-color:var(--gold)}
+  .foot-link{display:flex;align-items:center;justify-content:center;gap:14px;width:fit-content;margin:22px auto 0;padding:14px 28px;background:var(--card);border:1px solid var(--gold-light);border-radius:16px;color:var(--green);text-decoration:none;font-weight:700;font-size:18px;box-shadow:0 2px 14px rgba(0,0,0,.04);transition:.2s}
+  .foot-link svg{width:26px;height:26px;color:var(--gold);flex:none}
+  .foot-link small{display:block;color:var(--muted);font-weight:400;font-size:14px;margin-top:2px}
+  .foot-link:hover{transform:translateY(-2px);border-color:var(--gold)}
   .foot{text-align:center;color:var(--muted);font-size:15px;margin-top:40px;line-height:1.8}
   @media(max-width:600px){.section{padding:24px 18px 10px}.cta{padding:30px 22px}.search input{font-size:18px}.divider{display:none}}
 </style>
@@ -116,7 +117,11 @@
   </div>
 
   <p class="foot">هذه نسخة أولية تجريبية. الأسئلة المعروضة أمثلة فقط، وليست إجابات رسمية أو التزامات تعاقدية. تُنشر الإجابات المعتمدة بعد مراجعتها من فريق المشروع.</p>
-  <p class="foot-link"><a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">موقع مشروعات - مشروع ينبع</a></p>
+  <a class="foot-link" href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+    <span>موقع مشروعات - مشروع ينبع<small>لمزيد من التفاصيل</small></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 7H7v10M7 7l10 10"/></svg>
+  </a>
 </div>
 
 <script>
