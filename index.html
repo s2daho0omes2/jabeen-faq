@@ -32,15 +32,24 @@
   .search input{border:0;outline:0;font:inherit;font-size:22px;width:100%;color:var(--text);background:transparent}
   .search input::placeholder{color:#9a9a9a}
 
-  /* categories */
-  .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;margin-bottom:40px}
-  .cat{background:var(--card);border:2px solid transparent;border-radius:22px;padding:34px 16px 30px;text-align:center;cursor:pointer;
-       transition:.2s;box-shadow:0 2px 14px rgba(0,0,0,.04);font-weight:700;font-size:22px;color:var(--green)}
-  .cat .ic{color:var(--gold);margin-bottom:22px;height:36px;display:flex;justify-content:center}
-  .cat .ic svg{width:34px;height:34px}
-  .cat:hover{transform:translateY(-2px)}
+  /* categories index (list) */
+  .cats{background:var(--card);border-radius:24px;padding:30px 44px 26px;margin-bottom:28px;box-shadow:0 2px 14px rgba(0,0,0,.04)}
+  .cats h2{color:var(--green);font-size:clamp(20px,2vw,26px);font-weight:800;margin-bottom:6px}
+  .cats .hint{color:var(--muted);font-size:15px;margin-bottom:18px}
+  .cats ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 32px}
+  .cat{display:flex;align-items:center;gap:12px;padding:11px 10px;border-radius:12px;cursor:pointer;color:var(--green);font-weight:700;font-size:18px;transition:.15s;border:1px solid transparent}
+  .cat .ic{color:var(--gold);display:flex;flex:none}
+  .cat .ic svg{width:22px;height:22px}
+  .cat .t{flex:1;border-bottom:1px solid transparent}
+  .cat:hover{background:#f6f4ee}
+  .cat:hover .t{border-bottom-color:var(--gold-light)}
   .cat.active{background:#ecefe7;border-color:var(--gold-light)}
-  .cat small{display:block;color:var(--muted);font-weight:400;font-size:14px;margin-top:6px}
+  .cat small{color:var(--muted);font-weight:400;font-size:14px;white-space:nowrap}
+  .cat .chev{color:var(--gold);font-size:13px}
+  /* expand / collapse all */
+  .tools{display:flex;gap:10px;align-items:center;color:#cfcbc1;font-size:15px;margin:14px 4px 4px}
+  .tools button{all:unset;cursor:pointer;color:var(--gold);font-weight:700}
+  .tools button:hover{text-decoration:underline}
 
   /* faq */
   .section{background:var(--card);border-radius:24px;padding:34px 44px 18px;margin-bottom:24px;box-shadow:0 2px 14px rgba(0,0,0,.04)}
@@ -106,7 +115,7 @@
   .foot-link small{display:block;color:var(--muted);font-weight:400;font-size:14px;margin-top:2px}
   .foot-link:hover{transform:translateY(-2px);border-color:var(--gold)}
   .foot{text-align:center;color:var(--muted);font-size:15px;margin-top:40px;line-height:1.8}
-  @media(max-width:600px){.section{padding:24px 18px 10px}.cta{padding:30px 22px}.search input{font-size:18px}.divider{display:none}}
+  @media(max-width:600px){.section{padding:24px 18px 10px}.cats{padding:22px 16px 18px}.cta{padding:30px 22px}.search input{font-size:18px}.divider{display:none}}
 </style>
 </head>
 <body>
@@ -271,7 +280,8 @@ function plural(n){ return n===1?'سؤال واحد':n===2?'سؤالان':n<=10?
 function renderCats(){
   const total = DATA.reduce((s,c)=>s+c.items.length,0);
   const all = [{id:'all',title:'جميع الأسئلة',icon:'all',count:total}, ...DATA.map(c=>({...c,count:c.items.length}))];
-  catsEl.innerHTML = all.map(c=>`<div class="cat ${c.id===active?'active':''}" data-id="${c.id}"><div class="ic">${ICONS[c.icon]}</div>${c.title}<small>${plural(c.count)}</small></div>`).join('');
+  catsEl.innerHTML = `<h2>محتويات الدليل</h2><p class="hint">اختر الموضوع الذي تبحث عنه لعرض أسئلته.</p><ul>` +
+    all.map(c=>`<li class="cat ${c.id===active?'active':''}" data-id="${c.id}"><span class="chev">❯</span><span class="ic">${ICONS[c.icon]}</span><span class="t">${c.title}</span><small>${plural(c.count)}</small></li>`).join('') + `</ul>`;
   catsEl.querySelectorAll('.cat').forEach(el=>el.onclick=()=>{active=el.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
 }
 
@@ -285,6 +295,7 @@ function renderFaq(){
   faqEl.innerHTML = (active!=='all' ? `<button class="back" id="back">← العودة إلى جميع الأسئلة</button>` : '') + cats.map(c=>`
     <div class="section ${overview?'collapsed':''}" data-id="${c.id}">
       <div class="section-head ${overview?'clickable':''}"><h2>${c.title}</h2><span>${plural(c.items.length)} ${overview?'<b class="open-ic">▼</b>':''}</span></div>
+      ${overview?'':'<div class="tools"><button data-x="1">توسيع الكل</button>|<button data-x="0">طي الكل</button></div>'}
       ${c.items.map(i=>`
         <div class="q ${q?'open':''}">
           <button>${hl(i.q)}<span class="chev">▼</span></button>
@@ -295,6 +306,7 @@ function renderFaq(){
         </div>`).join('')}
     </div>`).join('');
   faqEl.querySelectorAll('.q button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+  faqEl.querySelectorAll('.tools button').forEach(b=>b.onclick=()=>b.closest('.section').querySelectorAll('.q').forEach(q=>q.classList.toggle('open',b.dataset.x==='1')));
   faqEl.querySelectorAll('.section-head.clickable').forEach(h=>h.onclick=()=>{active=h.parentElement.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
   const back=document.getElementById('back'); if(back) back.onclick=()=>{active='all';renderCats();renderFaq();catsEl.scrollIntoView({behavior:'smooth',block:'start'});};
 }
