@@ -287,7 +287,8 @@ function renderCats(){
 
 function renderFaq(){
   const q = query.trim().toLowerCase();
-  const overview = active==='all' && !q;   // في وضع "جميع الأسئلة" تظهر العناوين مطوية فقط
+  const overview = active==='all' && !q;   // في وضع "جميع الأسئلة" لا تظهر الأقسام، والتنقل من قائمة المحتويات
+  if(overview){ faqEl.innerHTML=''; return; }
   const cats = DATA.filter(c=>active==='all'||c.id===active)
     .map(c=>({...c, items:c.items.filter(i=>!q||i.q.toLowerCase().includes(q)||i.a.toLowerCase().includes(q))}))
     .filter(c=>c.items.length);
