@@ -46,6 +46,20 @@
   .cat.active{background:#ecefe7;border-color:var(--gold-light)}
   .cat small{color:var(--muted);font-weight:400;font-size:14px;white-space:nowrap}
   .cat .chev{color:var(--gold);font-size:13px}
+  /* top questions */
+  .top5 .section-head{border-bottom:0;padding-bottom:6px;margin-bottom:0}
+  .top5 .tools{margin-bottom:6px}
+  .tq{border-bottom:1px solid var(--line)}
+  .tq:last-child{border-bottom:0}
+  .tq button{all:unset;display:flex;align-items:center;gap:14px;width:100%;cursor:pointer;padding:20px 4px;font-size:clamp(17px,1.5vw,21px);font-weight:500;color:var(--text)}
+  .tq button:hover{color:var(--green)}
+  .tq .chev{color:var(--gold);font-size:14px;transition:.25s;flex:none;display:inline-block}
+  .tq.open .chev{transform:rotate(90deg)}
+  .tq .card{display:none;margin:0 4px 22px;background:#fbf7ec;border:1px solid var(--gold-light);border-right:5px solid var(--gold);border-radius:16px;padding:20px 24px}
+  .tq.open .card{display:block}
+  .tq .card h3{color:var(--green);font-size:19px;font-weight:800;margin-bottom:10px}
+  .tq .card p{color:#4a4a4a;font-size:17px;line-height:1.9}
+  .tq .card .cat-link{display:inline-block;margin-top:12px;color:var(--gold);font-weight:700;font-size:15px;cursor:pointer;border-bottom:1px solid var(--gold-light)}
   /* expand / collapse all */
   .tools{display:flex;gap:10px;align-items:center;color:#cfcbc1;font-size:15px;margin:14px 4px 4px}
   .tools button{all:unset;cursor:pointer;color:var(--gold);font-weight:700}
@@ -137,6 +151,8 @@
   </div>
 
   <div class="cats" id="cats"></div>
+
+  <div class="section top5" id="top5"></div>
 
   <div class="info">
     <p>المزيد عن المشروع
@@ -267,6 +283,9 @@ const DATA = [
   ]},
 ];
 
+/* أهم الاستفسارات: [معرّف التصنيف، ترتيب السؤال داخله بدءاً من 0] */
+const TOP = [['time',0],['time',1],['money',0],['pick',0],['job',0]];
+
 /* ---------------------------------------------------------------- */
 const PENDING = 'لم تُنشر الإجابة المعتمدة بعد. سيتم تحديث هذا السؤال بعد مراجعته من فريق المشروع.';
 let active = 'all', query = '';
@@ -285,9 +304,24 @@ function renderCats(){
   catsEl.querySelectorAll('.cat').forEach(el=>el.onclick=()=>{active=el.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
 }
 
+const topEl = document.getElementById('top5');
+function renderTop(){
+  const items = TOP.map(([id,i])=>{const c=DATA.find(c=>c.id===id); return {...c.items[i], cat:c};});
+  topEl.innerHTML = `<div class="section-head"><h2>أهم الاستفسارات</h2><span>الأكثر تكراراً من المستفيدين</span></div>
+    <div class="tools"><button data-x="1">توسيع الكل</button>|<button data-x="0">طي الكل</button></div>` +
+    items.map(i=>`<div class="tq"><button><span class="chev">❯</span>${esc(i.q)}</button>
+      <div class="card"><h3>${esc(i.q)}</h3>
+        <p><span class="badge ${i.a?'ok':''}">${i.a?'إجابة معتمدة':'قيد المراجعة'}</span> ${i.a?esc(i.a):PENDING}</p>
+        <span class="cat-link" data-id="${i.cat.id}">عرض كل أسئلة «${i.cat.title}» ←</span></div></div>`).join('');
+  topEl.querySelectorAll('.tq button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+  topEl.querySelectorAll('.tools button').forEach(b=>b.onclick=()=>topEl.querySelectorAll('.tq').forEach(t=>t.classList.toggle('open',b.dataset.x==='1')));
+  topEl.querySelectorAll('.cat-link').forEach(l=>l.onclick=()=>{active=l.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
+}
+
 function renderFaq(){
   const q = query.trim().toLowerCase();
   const overview = active==='all' && !q;   // في وضع "جميع الأسئلة" لا تظهر الأقسام، والتنقل من قائمة المحتويات
+  topEl.style.display = overview ? '' : 'none';
   if(overview){ faqEl.innerHTML=''; return; }
   const cats = DATA.filter(c=>active==='all'||c.id===active)
     .map(c=>({...c, items:c.items.filter(i=>!q||i.q.toLowerCase().includes(q)||i.a.toLowerCase().includes(q))}))
@@ -318,7 +352,7 @@ addEventListener('scroll',()=>topBtn.classList.toggle('show',scrollY>500),{passi
 topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
 
 document.getElementById('search').addEventListener('input',e=>{query=e.target.value;renderFaq();});
-renderCats(); renderFaq();
+renderCats(); renderTop(); renderFaq();
 </script>
 </body>
 </html>
