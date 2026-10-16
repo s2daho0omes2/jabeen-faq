@@ -72,6 +72,11 @@
   .info p small{display:block;color:var(--muted);font-weight:400;font-size:15px;margin-top:4px}
   .info a{color:#fff;background:var(--green);text-decoration:none;font-weight:700;padding:13px 26px;border-radius:12px;white-space:nowrap;font-size:17px}
   .info a:hover{background:var(--green-dark)}
+  .info-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .info a.alt{background:var(--gold)}
+  .info a.alt:hover{background:#a8872f}
+  .foot-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:22px}
+  .foot-links .foot-link{margin:0}
   .foot-link{display:flex;align-items:center;justify-content:center;gap:14px;width:fit-content;margin:22px auto 0;padding:14px 28px;background:var(--card);border:1px solid var(--gold-light);border-radius:16px;color:var(--green);text-decoration:none;font-weight:700;font-size:18px;box-shadow:0 2px 14px rgba(0,0,0,.04);transition:.2s}
   .foot-link svg{width:26px;height:26px;color:var(--gold);flex:none}
   .foot-link small{display:block;color:var(--muted);font-weight:400;font-size:14px;margin-top:2px}
@@ -101,9 +106,12 @@
   <div class="cats" id="cats"></div>
 
   <div class="info">
-    <p>موقع مشروعات - مشروع ينبع
-      <small>للاطلاع على المزيد من المعلومات، من ضمنها المساحات والأسعار.</small></p>
-    <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">موقع مشروعات - مشروع ينبع ←</a>
+    <p>المزيد عن المشروع
+      <small>تصفح المساحات والأسعار على موقع مشروعات، أو تجوّل افتراضياً داخل المشروع.</small></p>
+    <div class="info-btns">
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">موقع مشروعات - مشروع ينبع ←</a>
+      <a class="alt" href="https://zameengeomatics.com/public/jabeen-main/" target="_blank" rel="noopener">الجولة الافتراضية ←</a>
+    </div>
   </div>
 
   <div id="faq"></div>
@@ -117,11 +125,18 @@
   </div>
 
   <p class="foot">هذه نسخة أولية تجريبية. الأسئلة المعروضة أمثلة فقط، وليست إجابات رسمية أو التزامات تعاقدية. تُنشر الإجابات المعتمدة بعد مراجعتها من فريق المشروع.</p>
-  <a class="foot-link" href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
-    <span>موقع مشروعات - مشروع ينبع<small>لمزيد من التفاصيل</small></span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 7H7v10M7 7l10 10"/></svg>
-  </a>
+  <div class="foot-links">
+    <a class="foot-link" href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+      <span>موقع مشروعات - مشروع ينبع<small>لمزيد من التفاصيل</small></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 7H7v10M7 7l10 10"/></svg>
+    </a>
+    <a class="foot-link" href="https://zameengeomatics.com/public/jabeen-main/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+      <span>الجولة الافتراضية<small>تجوّل داخل المشروع بزاوية 360°</small></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 7H7v10M7 7l10 10"/></svg>
+    </a>
+  </div>
 </div>
 
 <script>
