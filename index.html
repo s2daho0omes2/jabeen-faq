@@ -17,7 +17,7 @@
     --green:#8fcfae; --green-dark:#a9dfc2; --gold:#d4b25f; --gold-light:#6b5a2e;
     --cream:#121614; --card:#1c2320; --text:#e6e8e4; --muted:#9aa39d; --line:#2c3531;
     --soft:#242a22; --hover:#232b27; --active:#27352d; --glow:#1d2a24; --shadow:rgba(0,0,0,.35);
-    --cta1:#17382b; --cta2:#1f4a39; --cta-sub:#b7cbc0; --logo-bg:#f4f1ea;
+    --cta1:#17382b; --cta2:#1f4a39; --cta-sub:#b7cbc0; --logo-bg:#1c2320;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -36,6 +36,8 @@
   .logo{background:var(--logo-bg);border-radius:22px;padding:26px 40px;min-width:280px;max-width:490px;flex:1;height:160px;
         display:flex;align-items:center;justify-content:center;box-shadow:0 2px 14px var(--shadow)}
   .logo img{max-height:110px;max-width:100%;object-fit:contain}
+  :root[data-theme="dark"] .logo{border:1px solid var(--line)}
+  :root[data-theme="dark"] .logo img{filter:brightness(1.15) contrast(1.05)}
   .divider{width:1px;height:90px;background:var(--line)}
   h1{text-align:center;color:var(--green);font-size:clamp(28px,4.2vw,52px);font-weight:800;margin-bottom:6px}
   .sub{text-align:center;color:var(--muted);font-size:clamp(14px,1.4vw,20px)}
