@@ -84,6 +84,8 @@
   .tq.open .card{display:block}
   .tq .card h3{color:var(--green);font-size:19px;font-weight:800;margin-bottom:10px}
   .tq .card p{color:var(--text);opacity:.85;font-size:17px;line-height:1.9}
+  .tq.all button{color:var(--green);font-weight:700;flex-wrap:wrap;gap:10px 14px}
+  .tq.all small{color:var(--muted);font-weight:400;font-size:14px}
   .tq .card .cat-link{display:inline-block;margin-top:12px;color:var(--gold);font-weight:700;font-size:15px;cursor:pointer;border-bottom:1px solid var(--gold-light)}
 
   /* faq */
@@ -141,7 +143,13 @@
   .foot-link small{display:block;color:var(--muted);font-weight:400;font-size:14px;margin-top:2px}
   .foot-link:hover{transform:translateY(-2px);border-color:var(--gold)}
   [dir="ltr"] .foot-link svg:last-child{transform:scaleX(-1)}
-  @media(max-width:600px){.section{padding:24px 18px 10px}.cta{padding:30px 22px}.search input{font-size:18px}.divider{display:none}}
+  @media(max-width:600px){
+    .section{padding:24px 18px 10px}.cta{padding:30px 22px}.search input{font-size:18px}
+    .logos{flex-wrap:nowrap;gap:12px;margin-bottom:26px}
+    .logo{min-width:0;flex:1;height:96px;padding:12px 14px;border-radius:16px}
+    .logo img{max-height:70px}
+    .divider{height:56px;flex:none}
+  }
 </style>
 </head>
 <body>
@@ -247,6 +255,7 @@ const UI = {
     disclaimer:'هذه نسخة أولية تجريبية. الأسئلة المعروضة أمثلة فقط، وليست إجابات رسمية أو التزامات تعاقدية. تُنشر الإجابات المعتمدة بعد مراجعتها من فريق المشروع.',
     mashroatBtn2:'موقع مشروعات - مشروع ينبع', mashroatSub:'لمزيد من التفاصيل', tourBtn2:'استكشف المشروع بجولة افتراضية 360°', tourSub:'تجوّل داخل المشروع من جوالك أو حاسوبك',
     dark:'الوضع الداكن', light:'الوضع الفاتح', lang:'English',
+    allQ:'جميع الأسئلة', allQSub:n=>`عرض القائمة الكاملة (${n} سؤالاً)`,
     plural:n=>n===1?'سؤال واحد':n===2?'سؤالان':n<=10?n+' أسئلة':n+' سؤالاً',
   },
   en:{
@@ -263,6 +272,7 @@ const UI = {
     disclaimer:'This is a preliminary trial version. The questions shown are examples only and are not official answers or contractual commitments. Approved answers will be published after review by the project team.',
     mashroatBtn2:'Mashroat website – Yanbu project', mashroatSub:'For more details', tourBtn2:'Explore the project in a 360° virtual tour', tourSub:'Walk through the project from your phone or computer',
     dark:'Dark mode', light:'Light mode', lang:'العربية',
+    allQ:'All questions', allQSub:n=>`View the full list (${n} questions)`,
     plural:n=>n===1?'1 question':n+' questions',
   }
 };
@@ -376,8 +386,10 @@ function renderTop(){
     <div class="tools"><button data-x="1">${T().expand}</button>|<button data-x="0">${T().collapse}</button></div>` +
     items.map(i=>`<div class="tq"><button><span class="chev">❯</span>${esc(Q(i))}</button>
       <div class="card"><h3>${esc(Q(i))}</h3><p>${badge(i)} ${answer(i)}</p>
-        <span class="cat-link" data-id="${i.cat.id}">${T().seeCat(CT(i.cat))}</span></div></div>`).join('');
-  topEl.querySelectorAll('.tq button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+        <span class="cat-link" data-id="${i.cat.id}">${T().seeCat(CT(i.cat))}</span></div></div>`).join('') +
+    `<div class="tq all"><button id="allq"><span class="chev">❯</span><b>${T().allQ}</b><small>${T().allQSub(DATA.reduce((s,c)=>s+c.items.length,0))}</small></button></div>`;
+  topEl.querySelectorAll('.tq button:not(#allq)').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+  document.getElementById('allq').onclick=()=>{active='allq';renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});};
   topEl.querySelectorAll('.tools button').forEach(b=>b.onclick=()=>topEl.querySelectorAll('.tq').forEach(t=>t.classList.toggle('open',b.dataset.x==='1')));
   topEl.querySelectorAll('.cat-link').forEach(l=>l.onclick=()=>{active=l.dataset.id;renderCats();renderFaq();faqEl.scrollIntoView({behavior:'smooth',block:'start'});});
 }
@@ -387,7 +399,7 @@ function renderFaq(){
   const overview = active==='all' && !q;
   topEl.style.display = overview ? '' : 'none';
   if(overview){ faqEl.innerHTML=''; return; }
-  const cats = DATA.filter(c=>active==='all'||c.id===active)
+  const cats = DATA.filter(c=>active==='all'||active==='allq'||c.id===active)
     .map(c=>({...c, items:c.items.filter(i=>!q||Q(i).toLowerCase().includes(q)||A(i).toLowerCase().includes(q))}))
     .filter(c=>c.items.length);
   const backBtn = `<button class="back" id="back">${T().back}</button>`;
