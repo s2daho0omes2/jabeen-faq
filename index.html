@@ -689,7 +689,6 @@ function renderUnitCard(r,fromMap){
   r.forEach(x=>{ document.querySelectorAll(`[data-v="${x.d}-${x.villa}"]`).forEach(el=>el.classList.add('hit')); });
   const f=r.find(x=>x.d===utab)||r[0]; focusMarker(f.d,f.villa);
   const hc=bpanel.querySelector('.chip.hit'); if(hc) bpanel.scrollTo({top:hc.offsetTop-bpanel.clientHeight/2,behavior:'smooth'});
-  if(fromMap) uRes.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 function renderStats(){
   const all=[...UNITS.nakheel,...UNITS.aziziyah];
@@ -707,7 +706,7 @@ function renderBlocks(){
   document.getElementById('ublocks').innerHTML=Object.keys(groups).sort().map(b=>`<div class="blk"><div class="bn">${T().block} ${b}<small>${T().villas(groups[b].length)}</small></div>
     <div class="chips">${groups[b].map(v=>`<button class="chip m-${v[2]}" data-v="${utab}-${v[0]}" title="${T().model} ${v[2]}">${v[0]}</button>`).join('')}</div></div>`).join('');
   renderMap();
-  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{const n=c.dataset.v.split('-')[1];document.getElementById('usearch').value=n;renderUnitCard(findVilla(n));uRes.scrollIntoView({behavior:'smooth',block:'center'});});
+  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{const n=c.dataset.v.split('-')[1];document.getElementById('usearch').value=n;renderUnitCard(findVilla(n),true);});
 }
 
 /* ===== الخريطة ===== */
