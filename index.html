@@ -618,7 +618,7 @@ const CT = c => lang==='en' ? (c.te||c.title) : c.title;
 const catsEl=document.getElementById('cats'), faqEl=document.getElementById('faq'), topEl=document.getElementById('top5');
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function hl(s){ if(!query) return esc(s); const r=new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'); return esc(s).replace(r,'<mark>$1</mark>'); }
-function badge(i){ const a=A(i); return `<span class="badge ${a?'ok':''}">${a?T().approved:T().pending}</span>`; }
+function badge(i){ return A(i) ? '' : `<span class="badge">${T().pending}</span>`; }
 function answer(i){ const a=A(i); return a?hl(a):T().pendingText; }
 
 function renderStatic(){
