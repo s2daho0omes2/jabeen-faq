@@ -149,7 +149,7 @@
   .maptools button#zfit{width:auto;padding:0 14px;font-size:14px}
   .maptools button:hover{border-color:var(--gold)}
   .maphint{color:var(--muted);font-size:13px;margin-inline-start:auto}
-  .map{position:relative;overflow:auto;border-radius:16px;border:1px solid var(--line);max-height:72vh;background:#0f1512;touch-action:pan-x pan-y;cursor:grab}
+  .map{position:relative;overflow:auto;border-radius:16px;border:1px solid var(--line);max-height:72vh;background:#0f1512;touch-action:pan-x pan-y;cursor:grab;direction:ltr}
   .map.drag{cursor:grabbing}
   .mapin{position:relative;width:var(--mz,100%);min-width:100%}
   .mapin img{width:100%;display:block;user-select:none;-webkit-user-drag:none}
@@ -698,7 +698,8 @@ function setZoom(z,cx,cy){
   mz=Math.max(100,Math.min(400,z));
   const fx=cx??((mapEl.scrollLeft+mapEl.clientWidth/2)/mapIn.offsetWidth), fy=cy??((mapEl.scrollTop+mapEl.clientHeight/2)/mapIn.offsetHeight);
   mapIn.style.setProperty('--mz',mz+'%');
-  mapEl.scrollLeft=fx*mapIn.offsetWidth-mapEl.clientWidth/2; mapEl.scrollTop=fy*mapIn.offsetHeight-mapEl.clientHeight/2;
+  const w=mapIn.offsetWidth, hh=mapIn.offsetHeight;   // يفرض إعادة الحساب بعد تغيير العرض
+  mapEl.scrollTo({left:fx*w-mapEl.clientWidth/2, top:fy*hh-mapEl.clientHeight/2});
 }
 document.getElementById('zin').onclick=()=>setZoom(mz*1.5);
 document.getElementById('zout').onclick=()=>setZoom(mz/1.5);
