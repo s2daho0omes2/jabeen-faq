@@ -161,8 +161,21 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.8)}100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
   .mk .tip{display:none;position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#fff;color:#1f4d3a;font-size:12px;font-weight:700;padding:3px 8px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.4);z-index:5}
   .mk:hover .tip{display:block}
-  .subhead{color:var(--green);font-size:18px;font-weight:800;margin:6px 0 2px}
-  @media(max-width:600px){.map{max-height:60vh}.mk{width:11px;height:11px}}
+  .mapwrap{position:relative;border-radius:16px;overflow:hidden}
+  .blockpanel{position:absolute;top:12px;right:12px;bottom:12px;width:min(340px,42%);background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);border-radius:14px;color:#fff;overflow-y:auto;padding:12px 14px;direction:rtl;z-index:6;transition:transform .25s,opacity .25s}
+  .blockpanel.hidden{transform:translateX(110%);opacity:0;pointer-events:none}
+  .bp-head{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:16px;margin-bottom:6px;position:sticky;top:-12px;background:rgba(0,0,0,.35);margin:-12px -14px 8px;padding:10px 14px;backdrop-filter:blur(6px)}
+  .bp-head button{all:unset;cursor:pointer;font-size:22px;line-height:1;opacity:.8;padding:0 4px}
+  .bp-head button:hover{opacity:1}
+  .blockpanel .blk{border-top:1px solid rgba(255,255,255,.15);padding:9px 0;gap:10px}
+  .blockpanel .blk .bn{color:#fff;min-width:70px;font-size:14px}
+  .blockpanel .blk .bn small{color:rgba(255,255,255,.65)}
+  .blockpanel .chip{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.2);font-size:13px;padding:4px 8px}
+  .blockpanel .chip.m-A{border-color:#2e8b57}.blockpanel .chip.m-B1{border-color:#d9a62e}.blockpanel .chip.m-B2{border-color:#2a9db0}
+  .blockpanel .chip.hit{background:#fff;color:#1f4d3a;box-shadow:0 0 0 2px var(--gold)}
+  .panel-toggle{all:unset;cursor:pointer;position:absolute;top:12px;right:12px;z-index:5;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);direction:rtl}
+  .panel-toggle.hidden{display:none}
+  @media(max-width:600px){.map{max-height:60vh}.mk{width:11px;height:11px}.blockpanel{width:auto;left:12px;top:auto;max-height:55%}.blockpanel.hidden{transform:translateY(110%)}}
 
   /* info banner */
   .info{background:var(--soft);border:1px solid var(--gold-light);border-radius:22px;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
@@ -260,10 +273,15 @@
         <button id="zin" title="+">+</button><button id="zout" title="-">&minus;</button><button id="zfit" data-t="mapFit"></button>
         <span class="maphint" data-t="mapHint"></span>
       </div>
-      <div class="map" id="map"><div class="mapin" id="mapin"><img id="mapimg" alt="" draggable="false"><div id="markers"></div></div></div>
+      <div class="mapwrap">
+        <div class="map" id="map"><div class="mapin" id="mapin"><img id="mapimg" alt="" draggable="false"><div id="markers"></div></div></div>
+        <button class="panel-toggle" id="ptoggle" data-t="blocksTitle"></button>
+        <aside class="blockpanel" id="bpanel">
+          <div class="bp-head"><span data-t="blocksTitle"></span><button id="pclose" aria-label="close">×</button></div>
+          <div id="ublocks"></div>
+        </aside>
+      </div>
     </div>
-    <h3 class="subhead" data-t="blocksTitle"></h3>
-    <div id="ublocks"></div>
     <p class="unote" data-t="unitsNote"></p>
   </div>
 
@@ -670,6 +688,7 @@ function renderUnitCard(r,fromMap){
   if(!r.some(x=>x.d===utab)){ utab=r[0].d; renderBlocks(); }
   r.forEach(x=>{ document.querySelectorAll(`[data-v="${x.d}-${x.villa}"]`).forEach(el=>el.classList.add('hit')); });
   const f=r.find(x=>x.d===utab)||r[0]; focusMarker(f.d,f.villa);
+  const hc=bpanel.querySelector('.chip.hit'); if(hc) bpanel.scrollTo({top:hc.offsetTop-bpanel.clientHeight/2,behavior:'smooth'});
   if(fromMap) uRes.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 function renderStats(){
@@ -712,6 +731,12 @@ let pinch=null;
 mapEl.addEventListener('touchstart',e=>{if(e.touches.length===2){const [a,b]=e.touches; pinch={d:Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),z:mz};}},{passive:true});
 mapEl.addEventListener('touchmove',e=>{if(pinch&&e.touches.length===2){const [a,b]=e.touches; const d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY); setZoom(pinch.z*d/pinch.d);}},{passive:true});
 mapEl.addEventListener('touchend',()=>{pinch=null;});
+/* لوحة البلوكات الجانبية */
+const bpanel=document.getElementById('bpanel'), ptoggle=document.getElementById('ptoggle');
+function setPanel(open){ bpanel.classList.toggle('hidden',!open); ptoggle.classList.toggle('hidden',open); }
+ptoggle.onclick=()=>setPanel(true);
+document.getElementById('pclose').onclick=()=>setPanel(false);
+setPanel(matchMedia('(min-width:900px)').matches);
 function renderMap(){
   mapImg.src='map-'+utab+'.jpg';
   mkEl.innerHTML=UNITS[utab].map(v=>`<div class="mk m-${v[2]}" style="left:${v[3]}%;top:${v[4]}%" data-v="${utab}-${v[0]}" data-n="${v[0]}"><span class="tip">${v[0]} · ${T().block} ${v[1]} · ${v[2]}</span></div>`).join('');
