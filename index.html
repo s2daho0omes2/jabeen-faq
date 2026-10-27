@@ -105,6 +105,42 @@
   .back{all:unset;cursor:pointer;display:inline-block;color:var(--green);font-weight:700;font-size:17px;margin:0 4px 16px;padding:8px 18px;border-radius:12px;background:var(--card);border:1px solid var(--gold-light)}
   .back:hover{border-color:var(--gold)}
 
+  /* allocated units */
+  .units{padding-bottom:28px}
+  .usearch{display:flex;align-items:center;gap:12px;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:12px 18px;margin:18px 0 14px}
+  .usearch input{border:0;outline:0;background:transparent;font:inherit;font-size:20px;width:100%;color:var(--text);letter-spacing:1px}
+  .usearch input::placeholder{color:var(--muted);letter-spacing:0;font-size:17px}
+  .ucard{background:var(--soft);border:1px solid var(--gold-light);border-inline-start:5px solid var(--gold);border-radius:16px;padding:18px 22px;margin-bottom:16px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
+  .ucard .big{font-size:30px;font-weight:800;color:var(--green);line-height:1.2}
+  .ucard .big small{display:block;font-size:13px;color:var(--muted);font-weight:400}
+  .ucard .kv{font-size:17px;color:var(--text)}
+  .ucard .kv b{color:var(--green)}
+  .ucard .kv span{display:block;color:var(--muted);font-size:13px}
+  .ucard a{margin-inline-start:auto;color:#fff;background:var(--cta1);text-decoration:none;font-weight:700;padding:10px 18px;border-radius:12px;font-size:15px;white-space:nowrap}
+  .ucard.none{border-inline-start-color:#c0392b;color:var(--text);font-size:17px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:6px 0 20px}
+  .stat{background:var(--cream);border-radius:14px;padding:14px 12px;text-align:center}
+  .stat b{display:block;font-size:26px;color:var(--green);font-weight:800;line-height:1.2}
+  .stat span{color:var(--muted);font-size:14px}
+  .utabs{display:flex;gap:8px;margin-bottom:12px}
+  .utabs button{all:unset;cursor:pointer;padding:9px 20px;border-radius:30px;border:1px solid var(--line);color:var(--green);font-weight:700;font-size:16px;background:var(--card)}
+  .utabs button.on{background:var(--cta1);color:#fff;border-color:var(--cta1)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin-bottom:14px}
+  .legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-inline-end:6px}
+  .blk{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+  .blk .bn{flex:none;min-width:86px;color:var(--green);font-weight:700;font-size:15px;padding-top:6px}
+  .blk .bn small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{all:unset;cursor:pointer;font-weight:700;font-size:14px;padding:5px 10px;border-radius:8px;border:1px solid transparent;font-variant-numeric:tabular-nums;transition:.15s}
+  .chip:hover,.chip.hit{transform:translateY(-1px);box-shadow:0 0 0 2px var(--gold)}
+  .m-A{background:#e4eee8;color:#1f4d3a;border-color:#bfd5c8}
+  .m-B1{background:#fbf0d2;color:#7a5f1a;border-color:#e6cf8a}
+  .m-B2{background:#dfeef0;color:#1d5560;border-color:#b5d4d9}
+  :root[data-theme="dark"] .m-A{background:#213a2e;color:#a9dfc2;border-color:#2f5240}
+  :root[data-theme="dark"] .m-B1{background:#3a3118;color:#e6cf8a;border-color:#5a4c22}
+  :root[data-theme="dark"] .m-B2{background:#1b3236;color:#9fd3dc;border-color:#2c4d53}
+  .unote{color:var(--muted);font-size:13.5px;margin-top:16px}
+
   /* info banner */
   .info{background:var(--soft);border:1px solid var(--gold-light);border-radius:22px;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
   .info p{color:var(--green);font-size:clamp(16px,1.4vw,21px);font-weight:700}
@@ -186,6 +222,20 @@
 
   <div class="section cats" id="cats"></div>
 
+  <div class="section units" id="units">
+    <div class="section-head"><h2 data-t="unitsTitle"></h2><span data-t="unitsSub"></span></div>
+    <div class="usearch">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="usearch" type="search" inputmode="numeric" autocomplete="off" maxlength="3">
+    </div>
+    <div id="uresult"></div>
+    <div class="stats" id="ustats"></div>
+    <div class="utabs" id="utabs"></div>
+    <div class="legend" id="ulegend"></div>
+    <div id="ublocks"></div>
+    <p class="unote" data-t="unitsNote"></p>
+  </div>
+
   <div class="info">
     <p><span data-t="moreTitle"></span><small data-t="moreSub"></small></p>
     <div class="info-btns">
@@ -256,6 +306,11 @@ const UI = {
     mashroatBtn2:'موقع مشروعات - مشروع ينبع', mashroatSub:'لمزيد من التفاصيل', tourBtn2:'استكشف المشروع بجولة افتراضية 360°', tourSub:'تجوّل داخل المشروع من جوالك أو حاسوبك',
     dark:'الوضع الداكن', light:'الوضع الفاتح', lang:'English',
     allQ:'جميع الأسئلة', allQSub:n=>`عرض القائمة الكاملة (${n} سؤالاً)`,
+    unitsTitle:'الوحدات المخصصة لياسرف', unitsSub:'200 فيلا في حيي النخيل والعزيزية', unitsSearch:'اكتب رقم الفيلا، مثل 131',
+    unitsNote:'الأرقام وفق الكشف المخصص لشركة ياسرف. لتفاصيل كل نموذج (المساحة والمخطط والسعر) راجع موقع مشروعات.',
+    total:'إجمالي الفلل', nakheel:'النخيل', aziziyah:'العزيزية', models:'النماذج', block:'البلوك', model:'النموذج', district:'الحي', villaNo:'فيلا رقم',
+    seeModel:'شاهد النموذج على موقع مشروعات ←', notFound:n=>`الفيلا رقم ${n} ليست ضمن الوحدات المخصصة لياسرف.`, villas:n=>n===1?'فيلا واحدة':n===2?'فيلتان':n<=10?n+' فلل':n+' فيلا',
+    modelA:'نموذج A', modelB1:'نموذج B1', modelB2:'نموذج B2',
     plural:n=>n===1?'سؤال واحد':n===2?'سؤالان':n<=10?n+' أسئلة':n+' سؤالاً',
   },
   en:{
@@ -273,6 +328,11 @@ const UI = {
     mashroatBtn2:'Mashroat website – Yanbu project', mashroatSub:'For more details', tourBtn2:'Explore the project in a 360° virtual tour', tourSub:'Walk through the project from your phone or computer',
     dark:'Dark mode', light:'Light mode', lang:'العربية',
     allQ:'All questions', allQSub:n=>`View the full list (${n} questions)`,
+    unitsTitle:'Units Allocated to Yasref', unitsSub:'200 villas in Al‑Nakheel and Al‑Aziziyah', unitsSearch:'Enter a villa number, e.g. 131',
+    unitsNote:'Numbers are per the allocation list for Yasref. For each model’s details (area, plan and price) see the Mashroat website.',
+    total:'Total villas', nakheel:'Al‑Nakheel', aziziyah:'Al‑Aziziyah', models:'Models', block:'Block', model:'Model', district:'District', villaNo:'Villa No.',
+    seeModel:'View the model on Mashroat →', notFound:n=>`Villa ${n} is not among the units allocated to Yasref.`, villas:n=>n===1?'1 villa':n+' villas',
+    modelA:'Model A', modelB1:'Model B1', modelB2:'Model B2',
     plural:n=>n===1?'1 question':n+' questions',
   }
 };
@@ -478,6 +538,9 @@ const DATA = [
   ]},
 ];
 
+/* الوحدات المخصصة لياسرف: [رقم الفيلا، البلوك، النموذج] */
+const UNITS={nakheel:[['002','01','A'],['003','01','A'],['004','01','A'],['005','01','A'],['006','01','A'],['007','01','A'],['008','01','A'],['011','01','A'],['012','01','A'],['013','01','A'],['014','01','A'],['015','01','A'],['016','01','A'],['017','01','A'],['018','01','A'],['019','01','A'],['022','02','A'],['023','02','A'],['024','02','A'],['025','02','A'],['026','02','A'],['027','02','A'],['028','02','A'],['029','02','A'],['030','02','A'],['031','02','A'],['034','03','A'],['035','03','A'],['036','03','A'],['037','03','A'],['038','03','A'],['039','03','A'],['040','03','A'],['043','03','A'],['044','03','A'],['045','03','A'],['046','03','A'],['047','03','A'],['048','03','A'],['049','03','A'],['052','04','A'],['053','04','A'],['054','04','A'],['057','04','A'],['058','04','A'],['059','04','A'],['062','04','A'],['063','04','A'],['064','04','A'],['065','04','A'],['068','04','A'],['069','04','A'],['070','04','A'],['073','05','A'],['074','05','A'],['077','05','A'],['078','05','A'],['083','05','A'],['086','05','A'],['087','05','A'],['090','05','A'],['091','05','A'],['092','05','A'],['093','05','A'],['094','05','A'],['100','06','A'],['103','06','A'],['108','07','A'],['115','07','A'],['118','08','A'],['119','08','A'],['120','08','A'],['121','08','A'],['122','08','A'],['123','08','A'],['126','08','A'],['127','08','A'],['128','08','A'],['129','08','A'],['130','08','A'],['131','08','A'],['132','08','A'],['135','09','A'],['136','09','A'],['137','09','A'],['138','09','A'],['139','09','A'],['140','09','A'],['141','09','A'],['142','09','A'],['143','09','A'],['146','09','A'],['147','09','A'],['148','09','A'],['149','09','A'],['150','09','A'],['151','09','A'],['152','09','A'],['153','09','A'],['154','09','A']],aziziyah:[['001','01','B2'],['002','01','B1'],['005','01','B1'],['006','01','B2'],['007','01','B2'],['013','01','B2'],['014','02','B2'],['018','02','B2'],['021','02','B2'],['022','03','B2'],['025','03','B2'],['026','03','B2'],['031','03','B2'],['032','03','B2'],['035','03','B2'],['036','04','B2'],['040','04','B2'],['041','04','B2'],['046','04','B2'],['047','04','B2'],['051','04','B2'],['054','05','B2'],['058','05','B2'],['059','05','B2'],['062','05','B2'],['063','06','B2'],['064','06','B1'],['065','06','B1'],['068','06','B1'],['069','06','B1'],['073','07','B2'],['074','07','B2'],['077','07','B2'],['080','07','B2'],['081','08','B2'],['085','08','B2'],['086','08','B2'],['091','08','B2'],['092','09','B2'],['096','09','B2'],['097','10','B2'],['100','10','B2'],['101','10','B2'],['104','10','B2'],['105','11','B2'],['112','11','B2'],['113','11','B2'],['117','11','B2'],['118','12','B2'],['121','12','B2'],['129','12','B2'],['130','12','B2'],['131','12','B1'],['134','12','B2'],['135','12','B2'],['139','12','B2'],['140','12','B2'],['148','12','B2'],['149','13','B2'],['150','13','B1'],['154','13','B2'],['155','13','B2'],['159','13','B2'],['160','13','B2'],['164','13','B2'],['165','13','B2'],['170','13','B2'],['171','14','B2'],['175','14','B2'],['176','14','B2'],['180','14','B2'],['181','14','B2'],['185','14','B2'],['186','14','B2'],['190','14','B2'],['191','15','B2'],['192','15','B1'],['202','15','B2'],['203','15','B2'],['213','15','B1'],['214','15','B2'],['215','16','B2'],['216','16','B1'],['217','16','B1'],['220','16','B1'],['221','16','B1'],['222','16','B2'],['223','17','B2'],['224','17','B1'],['225','17','B1'],['226','17','B1'],['227','17','B1'],['228','17','B1'],['231','17','B1'],['232','17','B1'],['233','17','B1'],['234','17','B2'],['235','18','B2'],['238','18','B1'],['239','18','B2']]};
+
 /* أهم الاستفسارات: [معرّف التصنيف، ترتيب السؤال داخله بدءاً من 0] */
 const TOP = [['exec',0],['exec',1],['money',0],['handover',1],['warranty',1]];
 
@@ -528,6 +591,7 @@ function renderFaq(){
   const q = query.trim().toLowerCase();
   const overview = active==='all' && !q;
   topEl.style.display = overview ? '' : 'none';
+  unitsEl.style.display = overview ? '' : 'none';
   if(overview){ faqEl.innerHTML=''; return; }
   const cats = DATA.filter(c=>active==='all'||active==='allq'||c.id===active)
     .map(c=>({...c, items:c.items.filter(i=>!q||Q(i).toLowerCase().includes(q)||A(i).toLowerCase().includes(q))}))
@@ -550,7 +614,50 @@ function renderFaq(){
 }
 function bindBack(){ const b=document.getElementById('back'); if(b) b.onclick=()=>{active='all';renderCats();renderFaq();topEl.scrollIntoView({behavior:'smooth',block:'start'});}; }
 
-function renderAll(){ renderStatic(); renderCats(); renderTop(); renderFaq(); }
+
+/* ===== الوحدات المخصصة ===== */
+const unitsEl=document.getElementById('units'), uRes=document.getElementById('uresult');
+let utab='nakheel';
+const UD = {nakheel:'nakheel', aziziyah:'aziziyah'};
+function findVilla(n){
+  n=String(n).replace(/\D/g,''); if(!n) return null; n=n.padStart(3,'0');
+  for(const d of ['nakheel','aziziyah']){ const v=UNITS[d].find(x=>x[0]===n); if(v) return {d, villa:v[0], block:v[1], model:v[2]}; }
+  return {missing:n};
+}
+function renderUnitCard(r){
+  if(!r){ uRes.innerHTML=''; document.querySelectorAll('.chip.hit').forEach(c=>c.classList.remove('hit')); return; }
+  if(r.missing){ uRes.innerHTML=`<div class="ucard none">${T().notFound(+r.missing)}</div>`; return; }
+  uRes.innerHTML=`<div class="ucard">
+    <div class="big">${r.villa}<small>${T().villaNo}</small></div>
+    <div class="kv"><span>${T().district}</span><b>${T()[r.d]}</b></div>
+    <div class="kv"><span>${T().block}</span><b>${r.block}</b></div>
+    <div class="kv"><span>${T().model}</span><b>${r.model}</b></div>
+    <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">${T().seeModel}</a></div>`;
+  if(utab!==r.d){ utab=r.d; renderBlocks(); }
+  document.querySelectorAll('.chip.hit').forEach(c=>c.classList.remove('hit'));
+  const chip=document.querySelector(`.chip[data-v="${r.d}-${r.villa}"]`); if(chip){ chip.classList.add('hit'); }
+}
+function renderStats(){
+  const all=[...UNITS.nakheel,...UNITS.aziziyah];
+  const cnt=m=>all.filter(x=>x[2]===m).length;
+  document.getElementById('ustats').innerHTML=[
+    [all.length,T().total],[UNITS.nakheel.length,T().nakheel],[UNITS.aziziyah.length,T().aziziyah],
+    [cnt('A'),T().modelA],[cnt('B1'),T().modelB1],[cnt('B2'),T().modelB2]
+  ].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+  document.getElementById('ulegend').innerHTML=['A','B1','B2'].map(m=>`<span><i class="m-${m}"></i>${T()['model'+m]}</span>`).join('');
+}
+function renderBlocks(){
+  document.getElementById('utabs').innerHTML=['nakheel','aziziyah'].map(d=>`<button class="${utab===d?'on':''}" data-d="${d}">${T()[d]} · ${UNITS[d].length}</button>`).join('');
+  document.querySelectorAll('#utabs button').forEach(b=>b.onclick=()=>{utab=b.dataset.d;renderBlocks();});
+  const groups={}; UNITS[utab].forEach(v=>(groups[v[1]]=groups[v[1]]||[]).push(v));
+  document.getElementById('ublocks').innerHTML=Object.keys(groups).sort().map(b=>`<div class="blk"><div class="bn">${T().block} ${b}<small>${T().villas(groups[b].length)}</small></div>
+    <div class="chips">${groups[b].map(v=>`<button class="chip m-${v[2]}" data-v="${utab}-${v[0]}" title="${T().model} ${v[2]}">${v[0]}</button>`).join('')}</div></div>`).join('');
+  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{const n=c.dataset.v.split('-')[1];document.getElementById('usearch').value=n;renderUnitCard(findVilla(n));uRes.scrollIntoView({behavior:'smooth',block:'center'});});
+}
+function renderUnits(){ document.getElementById('usearch').placeholder=T().unitsSearch; renderStats(); renderBlocks(); const q=document.getElementById('usearch').value; renderUnitCard(q?findVilla(q):null); }
+document.getElementById('usearch').addEventListener('input',e=>renderUnitCard(e.target.value.trim()?findVilla(e.target.value):null));
+
+function renderAll(){ renderStatic(); renderCats(); renderTop(); renderUnits(); renderFaq(); }
 
 /* اللغة */
 document.getElementById('langBtn').onclick=()=>{ lang = lang==='ar'?'en':'ar'; try{localStorage.setItem('lang',lang);}catch(e){} renderAll(); };

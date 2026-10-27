@@ -1,0 +1,1012 @@
+{
+ "nakheel": {
+  "name": "النخيل",
+  "villas": [
+   {
+    "villa": "002",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "003",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "004",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "005",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "006",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "007",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "008",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "011",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "012",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "013",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "014",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "015",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "016",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "017",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "018",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "019",
+    "block": "01",
+    "model": "A"
+   },
+   {
+    "villa": "022",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "023",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "024",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "025",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "026",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "027",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "028",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "029",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "030",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "031",
+    "block": "02",
+    "model": "A"
+   },
+   {
+    "villa": "034",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "035",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "036",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "037",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "038",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "039",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "040",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "043",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "044",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "045",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "046",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "047",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "048",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "049",
+    "block": "03",
+    "model": "A"
+   },
+   {
+    "villa": "052",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "053",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "054",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "057",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "058",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "059",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "062",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "063",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "064",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "065",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "068",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "069",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "070",
+    "block": "04",
+    "model": "A"
+   },
+   {
+    "villa": "073",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "074",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "077",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "078",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "083",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "086",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "087",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "090",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "091",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "092",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "093",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "094",
+    "block": "05",
+    "model": "A"
+   },
+   {
+    "villa": "100",
+    "block": "06",
+    "model": "A"
+   },
+   {
+    "villa": "103",
+    "block": "06",
+    "model": "A"
+   },
+   {
+    "villa": "108",
+    "block": "07",
+    "model": "A"
+   },
+   {
+    "villa": "115",
+    "block": "07",
+    "model": "A"
+   },
+   {
+    "villa": "118",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "119",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "120",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "121",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "122",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "123",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "126",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "127",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "128",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "129",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "130",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "131",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "132",
+    "block": "08",
+    "model": "A"
+   },
+   {
+    "villa": "135",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "136",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "137",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "138",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "139",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "140",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "141",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "142",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "143",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "146",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "147",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "148",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "149",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "150",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "151",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "152",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "153",
+    "block": "09",
+    "model": "A"
+   },
+   {
+    "villa": "154",
+    "block": "09",
+    "model": "A"
+   }
+  ]
+ },
+ "aziziyah": {
+  "name": "العزيزية",
+  "villas": [
+   {
+    "villa": "001",
+    "block": "01",
+    "model": "B2"
+   },
+   {
+    "villa": "002",
+    "block": "01",
+    "model": "B1"
+   },
+   {
+    "villa": "005",
+    "block": "01",
+    "model": "B1"
+   },
+   {
+    "villa": "006",
+    "block": "01",
+    "model": "B2"
+   },
+   {
+    "villa": "007",
+    "block": "01",
+    "model": "B2"
+   },
+   {
+    "villa": "013",
+    "block": "01",
+    "model": "B2"
+   },
+   {
+    "villa": "014",
+    "block": "02",
+    "model": "B2"
+   },
+   {
+    "villa": "018",
+    "block": "02",
+    "model": "B2"
+   },
+   {
+    "villa": "021",
+    "block": "02",
+    "model": "B2"
+   },
+   {
+    "villa": "022",
+    "block": "03",
+    "model": "B2"
+   },
+   {
+    "villa": "025",
+    "block": "03",
+    "model": "B2"
+   },
+   {
+    "villa": "026",
+    "block": "03",
+    "model": "B2"
+   },
+   {
+    "villa": "031",
+    "block": "03",
+    "model": "B2"
+   },
+   {
+    "villa": "032",
+    "block": "03",
+    "model": "B2"
+   },
+   {
+    "villa": "035",
+    "block": "03",
+    "model": "B2"
+   },
+   {
+    "villa": "036",
+    "block": "04",
+    "model": "B2"
+   },
+   {
+    "villa": "040",
+    "block": "04",
+    "model": "B2"
+   },
+   {
+    "villa": "041",
+    "block": "04",
+    "model": "B2"
+   },
+   {
+    "villa": "046",
+    "block": "04",
+    "model": "B2"
+   },
+   {
+    "villa": "047",
+    "block": "04",
+    "model": "B2"
+   },
+   {
+    "villa": "051",
+    "block": "04",
+    "model": "B2"
+   },
+   {
+    "villa": "054",
+    "block": "05",
+    "model": "B2"
+   },
+   {
+    "villa": "058",
+    "block": "05",
+    "model": "B2"
+   },
+   {
+    "villa": "059",
+    "block": "05",
+    "model": "B2"
+   },
+   {
+    "villa": "062",
+    "block": "05",
+    "model": "B2"
+   },
+   {
+    "villa": "063",
+    "block": "06",
+    "model": "B2"
+   },
+   {
+    "villa": "064",
+    "block": "06",
+    "model": "B1"
+   },
+   {
+    "villa": "065",
+    "block": "06",
+    "model": "B1"
+   },
+   {
+    "villa": "068",
+    "block": "06",
+    "model": "B1"
+   },
+   {
+    "villa": "069",
+    "block": "06",
+    "model": "B1"
+   },
+   {
+    "villa": "073",
+    "block": "07",
+    "model": "B2"
+   },
+   {
+    "villa": "074",
+    "block": "07",
+    "model": "B2"
+   },
+   {
+    "villa": "077",
+    "block": "07",
+    "model": "B2"
+   },
+   {
+    "villa": "080",
+    "block": "07",
+    "model": "B2"
+   },
+   {
+    "villa": "081",
+    "block": "08",
+    "model": "B2"
+   },
+   {
+    "villa": "085",
+    "block": "08",
+    "model": "B2"
+   },
+   {
+    "villa": "086",
+    "block": "08",
+    "model": "B2"
+   },
+   {
+    "villa": "091",
+    "block": "08",
+    "model": "B2"
+   },
+   {
+    "villa": "092",
+    "block": "09",
+    "model": "B2"
+   },
+   {
+    "villa": "096",
+    "block": "09",
+    "model": "B2"
+   },
+   {
+    "villa": "097",
+    "block": "10",
+    "model": "B2"
+   },
+   {
+    "villa": "100",
+    "block": "10",
+    "model": "B2"
+   },
+   {
+    "villa": "101",
+    "block": "10",
+    "model": "B2"
+   },
+   {
+    "villa": "104",
+    "block": "10",
+    "model": "B2"
+   },
+   {
+    "villa": "105",
+    "block": "11",
+    "model": "B2"
+   },
+   {
+    "villa": "112",
+    "block": "11",
+    "model": "B2"
+   },
+   {
+    "villa": "113",
+    "block": "11",
+    "model": "B2"
+   },
+   {
+    "villa": "117",
+    "block": "11",
+    "model": "B2"
+   },
+   {
+    "villa": "118",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "121",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "129",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "130",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "131",
+    "block": "12",
+    "model": "B1"
+   },
+   {
+    "villa": "134",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "135",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "139",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "140",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "148",
+    "block": "12",
+    "model": "B2"
+   },
+   {
+    "villa": "149",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "150",
+    "block": "13",
+    "model": "B1"
+   },
+   {
+    "villa": "154",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "155",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "159",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "160",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "164",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "165",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "170",
+    "block": "13",
+    "model": "B2"
+   },
+   {
+    "villa": "171",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "175",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "176",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "180",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "181",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "185",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "186",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "190",
+    "block": "14",
+    "model": "B2"
+   },
+   {
+    "villa": "191",
+    "block": "15",
+    "model": "B2"
+   },
+   {
+    "villa": "192",
+    "block": "15",
+    "model": "B1"
+   },
+   {
+    "villa": "202",
+    "block": "15",
+    "model": "B2"
+   },
+   {
+    "villa": "203",
+    "block": "15",
+    "model": "B2"
+   },
+   {
+    "villa": "213",
+    "block": "15",
+    "model": "B1"
+   },
+   {
+    "villa": "214",
+    "block": "15",
+    "model": "B2"
+   },
+   {
+    "villa": "215",
+    "block": "16",
+    "model": "B2"
+   },
+   {
+    "villa": "216",
+    "block": "16",
+    "model": "B1"
+   },
+   {
+    "villa": "217",
+    "block": "16",
+    "model": "B1"
+   },
+   {
+    "villa": "220",
+    "block": "16",
+    "model": "B1"
+   },
+   {
+    "villa": "221",
+    "block": "16",
+    "model": "B1"
+   },
+   {
+    "villa": "222",
+    "block": "16",
+    "model": "B2"
+   },
+   {
+    "villa": "223",
+    "block": "17",
+    "model": "B2"
+   },
+   {
+    "villa": "224",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "225",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "226",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "227",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "228",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "231",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "232",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "233",
+    "block": "17",
+    "model": "B1"
+   },
+   {
+    "villa": "234",
+    "block": "17",
+    "model": "B2"
+   },
+   {
+    "villa": "235",
+    "block": "18",
+    "model": "B2"
+   },
+   {
+    "villa": "238",
+    "block": "18",
+    "model": "B1"
+   },
+   {
+    "villa": "239",
+    "block": "18",
+    "model": "B2"
+   }
+  ]
+ }
+}
