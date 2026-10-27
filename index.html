@@ -184,16 +184,19 @@
   @media(max-width:600px){.map{max-height:60vh}.mk{width:11px;height:11px}.blockpanel{width:auto;left:12px;top:auto;max-height:55%}.blockpanel.hidden{transform:translateY(110%)}}
 
   /* info banner */
-  .info{background:var(--soft);border:1px solid var(--gold-light);border-radius:22px;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
-  .info p{color:var(--green);font-size:clamp(16px,1.4vw,21px);font-weight:700}
+  .info{background:var(--soft);border:1px solid var(--gold-light);border-radius:22px;padding:26px 32px 28px;margin-bottom:28px}
+  .info p{color:var(--green);font-size:clamp(18px,1.6vw,24px);font-weight:800}
   .info p small{display:block;color:var(--muted);font-weight:400;font-size:15px;margin-top:4px}
-  .info-btns{display:flex;gap:12px;flex-wrap:wrap}
-  .info a{color:#fff;background:var(--cta1);text-decoration:none;font-weight:700;padding:13px 26px;border-radius:12px;white-space:nowrap;font-size:17px}
-  .info a:hover{background:var(--cta2)}
-  .info a.alt{background:#b8963e}
-  .info a.alt:hover{background:#a8872f}
-  .info a.vid{background:#7a2e2e}
-  .info a.vid:hover{background:#642424}
+  .info-btns{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+  .info a{position:relative;display:flex;flex-direction:column;gap:8px;min-height:150px;color:#fff;background:linear-gradient(135deg,var(--cta1),var(--cta2));text-decoration:none;padding:22px 24px 20px;border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:.2s}
+  .info a:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.14)}
+  .info a svg{width:34px;height:34px;opacity:.9}
+  .info a b{font-size:clamp(17px,1.4vw,21px);font-weight:800;line-height:1.4}
+  .info a small{font-size:14.5px;opacity:.85;line-height:1.7;flex:1}
+  .info a .arr{align-self:flex-start;font-size:20px;font-weight:800;opacity:.9}
+  [dir="ltr"] .info a .arr{transform:scaleX(-1)}
+  .info a.alt{background:linear-gradient(135deg,#b8963e,#a07f2c)}
+  .info a.vid{background:linear-gradient(135deg,#7a2e2e,#5d2020)}
 
   /* gallery */
   .gallery{padding-bottom:30px}
@@ -296,9 +299,15 @@
   <div class="info">
     <p><span data-t="moreTitle"></span><small data-t="moreSub"></small></p>
     <div class="info-btns">
-      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener" data-t="mashroatBtn"></a>
-      <a class="alt" href="https://zameengeomatics.com/public/jabeen-main/" target="_blank" rel="noopener" data-t="tourBtn"></a>
-      <a class="vid" href="https://jyiccomsa-my.sharepoint.com/:v:/g/personal/garawias_jyic_com_sa/IQABwgM_kJmnT7e8ZjW8SlhfAXgE__WAU45vXB_jU6K4Lig?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=TE7VTx" target="_blank" rel="noopener" data-t="videoBtn"></a>
+      <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+        <b data-t="mashroatBtn2"></b><small data-t="mashroatCard"></small><span class="arr">←</span></a>
+      <a class="alt" href="https://zameengeomatics.com/public/jabeen-main/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+        <b data-t="tourBtn2"></b><small data-t="tourSub"></small><span class="arr">←</span></a>
+      <a class="vid" href="https://jyiccomsa-my.sharepoint.com/:v:/g/personal/garawias_jyic_com_sa/IQABwgM_kJmnT7e8ZjW8SlhfAXgE__WAU45vXB_jU6K4Lig?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=TE7VTx" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+        <b data-t="videoBtn2"></b><small data-t="videoSub"></small><span class="arr">←</span></a>
     </div>
   </div>
 
@@ -363,7 +372,7 @@ const UI = {
     seeCat:t=>`عرض كل أسئلة «${t}» ←`, noResults:'لا توجد نتائج مطابقة لبحثك.',
     moreTitle:'المزيد عن المشروع', moreSub:'تصفح المساحات والأسعار على موقع مشروعات، أو تجوّل افتراضياً داخل المشروع، أو شاهد الفيديو التعريفي.',
     mashroatBtn:'موقع مشروعات - مشروع ينبع ←', tourBtn:'استكشف المشروع بجولة افتراضية 360° ←',
-    videoBtn:'شاهد فيديو المشروع ▶', videoBtn2:'فيديو تعريفي عن المشروع', videoSub:'نظرة مرئية سريعة على المشروع وتصاميمه قبل زيارة الموقع',
+    videoBtn:'شاهد فيديو المشروع ▶', videoBtn2:'فيديو تعريفي عن المشروع', mashroatCard:'المساحات والأسعار والمخططات لكل نموذج، مع صور وتفاصيل الوحدات.', videoSub:'نظرة مرئية سريعة على المشروع وتصاميمه قبل زيارة الموقع',
     gallery:'معرض النماذج', gallerySub:'صور من موقع مشروعات', galleryCta:'جميع الصور والتفاصيل على موقع مشروعات ←',
     ctaTitle:'لم تجد إجابة عن استفسارك؟', ctaSub:'شاركنا سؤالك عبر الاستبيان ليتم مراجعته والرد عليه.', ctaBtn:'إرسال سؤالك الآن ←',
     disclaimer:'الإجابات المنشورة معتمدة من فريق المشروع بناءً على ما طُرح في اللقاء، وقد يتم تحديثها عند توفر مستجدات. لا تُعد هذه الصفحة بديلاً عن العقود والمستندات الرسمية.',
@@ -387,7 +396,7 @@ const UI = {
     seeCat:t=>`View all “${t}” questions →`, noResults:'No results match your search.',
     moreTitle:'More about the project', moreSub:'Browse unit sizes and prices on the Mashroat website, take a virtual tour, or watch the introduction video.',
     mashroatBtn:'Mashroat website – Yanbu project →', tourBtn:'Explore the project in a 360° virtual tour →',
-    videoBtn:'Watch the project video ▶', videoBtn2:'Project introduction video', videoSub:'A quick visual look at the project and its designs before you visit the site',
+    videoBtn:'Watch the project video ▶', videoBtn2:'Project introduction video', mashroatCard:'Areas, prices and plans for each model, with photos and unit details.', videoSub:'A quick visual look at the project and its designs before you visit the site',
     gallery:'Model Gallery', gallerySub:'Images from the Mashroat website', galleryCta:'All images and details on the Mashroat website →',
     ctaTitle:'Didn’t find an answer?', ctaSub:'Share your question through the survey and it will be reviewed and answered.', ctaBtn:'Submit your question →',
     disclaimer:'The published answers are approved by the project team based on what was raised at the meeting and may be updated as new information becomes available. This page is not a substitute for the official contracts and documents.',
