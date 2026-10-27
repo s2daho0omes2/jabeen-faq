@@ -142,6 +142,28 @@
   .umulti{color:var(--gold);font-weight:700;font-size:15px;margin:0 4px 10px}
   .unote{color:var(--muted);font-size:13.5px;margin-top:16px}
 
+  /* map */
+  .mapbox{margin:4px 0 22px}
+  .maptools{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .maptools button{all:unset;cursor:pointer;background:var(--card);border:1px solid var(--line);color:var(--green);font-weight:800;font-size:18px;width:38px;height:36px;text-align:center;border-radius:10px;line-height:36px}
+  .maptools button#zfit{width:auto;padding:0 14px;font-size:14px}
+  .maptools button:hover{border-color:var(--gold)}
+  .maphint{color:var(--muted);font-size:13px;margin-inline-start:auto}
+  .map{position:relative;overflow:auto;border-radius:16px;border:1px solid var(--line);max-height:72vh;background:#0f1512;touch-action:pan-x pan-y;cursor:grab}
+  .map.drag{cursor:grabbing}
+  .mapin{position:relative;width:var(--mz,100%);min-width:100%}
+  .mapin img{width:100%;display:block;user-select:none;-webkit-user-drag:none}
+  .mk{position:absolute;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);cursor:pointer;transition:width .15s,height .15s}
+  .mk.m-A{background:#2e8b57}.mk.m-B1{background:#d9a62e}.mk.m-B2{background:#2a9db0}
+  .mk:hover{width:20px;height:20px;z-index:3}
+  .mk.hit{width:24px;height:24px;z-index:4;border-color:#fff;animation:pulse 1.2s ease-out infinite}
+  .mk.hit::after{content:attr(data-n);position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:#fff;color:#1f4d3a;font-weight:800;font-size:13px;padding:2px 8px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.8)}100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
+  .mk .tip{display:none;position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#fff;color:#1f4d3a;font-size:12px;font-weight:700;padding:3px 8px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.4);z-index:5}
+  .mk:hover .tip{display:block}
+  .subhead{color:var(--green);font-size:18px;font-weight:800;margin:6px 0 2px}
+  @media(max-width:600px){.map{max-height:60vh}.mk{width:11px;height:11px}}
+
   /* info banner */
   .info{background:var(--soft);border:1px solid var(--gold-light);border-radius:22px;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
   .info p{color:var(--green);font-size:clamp(16px,1.4vw,21px);font-weight:700}
@@ -233,6 +255,14 @@
     <div class="stats" id="ustats"></div>
     <div class="utabs" id="utabs"></div>
     <div class="legend" id="ulegend"></div>
+    <div class="mapbox">
+      <div class="maptools">
+        <button id="zin" title="+">+</button><button id="zout" title="-">&minus;</button><button id="zfit" data-t="mapFit"></button>
+        <span class="maphint" data-t="mapHint"></span>
+      </div>
+      <div class="map" id="map"><div class="mapin" id="mapin"><img id="mapimg" alt="" draggable="false"><div id="markers"></div></div></div>
+    </div>
+    <h3 class="subhead" data-t="blocksTitle"></h3>
     <div id="ublocks"></div>
     <p class="unote" data-t="unitsNote"></p>
   </div>
@@ -311,6 +341,7 @@ const UI = {
     unitsNote:'الأرقام وفق الكشف المخصص لشركة ياسرف. لتفاصيل كل نموذج (المساحة والمخطط والسعر) راجع موقع مشروعات.',
     total:'إجمالي الفلل', nakheel:'النخيل', aziziyah:'العزيزية', models:'النماذج', block:'البلوك', model:'النموذج', district:'الحي', villaNo:'فيلا رقم',
     seeModel:'شاهد النموذج على موقع مشروعات ←', notFound:n=>`الفيلا رقم ${n} ليست ضمن الوحدات المخصصة لياسرف.`, villas:n=>n===1?'فيلا واحدة':n===2?'فيلتان':n<=10?n+' فلل':n+' فيلا',
+    mapFit:'ملاءمة', mapHint:'اضغط على أي نقطة لعرض بيانات الفيلا. كبّر بالأزرار أو بإصبعين.', blocksTitle:'التوزيع حسب البلوك',
     modelA:'نموذج A', modelB1:'نموذج B1', modelB2:'نموذج B2', multi:n=>`الرقم ${+n} موجود في الحيين، تأكد من الحي المخصص لك:`,
     plural:n=>n===1?'سؤال واحد':n===2?'سؤالان':n<=10?n+' أسئلة':n+' سؤالاً',
   },
@@ -333,6 +364,7 @@ const UI = {
     unitsNote:'Numbers are per the allocation list for Yasref. For each model’s details (area, plan and price) see the Mashroat website.',
     total:'Total villas', nakheel:'Al‑Nakheel', aziziyah:'Al‑Aziziyah', models:'Models', block:'Block', model:'Model', district:'District', villaNo:'Villa No.',
     seeModel:'View the model on Mashroat →', notFound:n=>`Villa ${n} is not among the units allocated to Yasref.`, villas:n=>n===1?'1 villa':n+' villas',
+    mapFit:'Fit', mapHint:'Tap any dot to see the villa details. Zoom with the buttons or pinch.', blocksTitle:'Distribution by block',
     modelA:'Model A', modelB1:'Model B1', modelB2:'Model B2', multi:n=>`Number ${+n} exists in both districts; check which district is yours:`,
     plural:n=>n===1?'1 question':n+' questions',
   }
@@ -540,7 +572,7 @@ const DATA = [
 ];
 
 /* الوحدات المخصصة لياسرف: [رقم الفيلا، البلوك، النموذج] */
-const UNITS={nakheel:[['002','01','A'],['003','01','A'],['004','01','A'],['005','01','A'],['006','01','A'],['007','01','A'],['008','01','A'],['011','01','A'],['012','01','A'],['013','01','A'],['014','01','A'],['015','01','A'],['016','01','A'],['017','01','A'],['018','01','A'],['019','01','A'],['022','02','A'],['023','02','A'],['024','02','A'],['025','02','A'],['026','02','A'],['027','02','A'],['028','02','A'],['029','02','A'],['030','02','A'],['031','02','A'],['034','03','A'],['035','03','A'],['036','03','A'],['037','03','A'],['038','03','A'],['039','03','A'],['040','03','A'],['043','03','A'],['044','03','A'],['045','03','A'],['046','03','A'],['047','03','A'],['048','03','A'],['049','03','A'],['052','04','A'],['053','04','A'],['054','04','A'],['057','04','A'],['058','04','A'],['059','04','A'],['062','04','A'],['063','04','A'],['064','04','A'],['065','04','A'],['068','04','A'],['069','04','A'],['070','04','A'],['073','05','A'],['074','05','A'],['077','05','A'],['078','05','A'],['083','05','A'],['086','05','A'],['087','05','A'],['090','05','A'],['091','05','A'],['092','05','A'],['093','05','A'],['094','05','A'],['100','06','A'],['103','06','A'],['108','07','A'],['115','07','A'],['118','08','A'],['119','08','A'],['120','08','A'],['121','08','A'],['122','08','A'],['123','08','A'],['126','08','A'],['127','08','A'],['128','08','A'],['129','08','A'],['130','08','A'],['131','08','A'],['132','08','A'],['135','09','A'],['136','09','A'],['137','09','A'],['138','09','A'],['139','09','A'],['140','09','A'],['141','09','A'],['142','09','A'],['143','09','A'],['146','09','A'],['147','09','A'],['148','09','A'],['149','09','A'],['150','09','A'],['151','09','A'],['152','09','A'],['153','09','A'],['154','09','A']],aziziyah:[['001','01','B2'],['002','01','B1'],['005','01','B1'],['006','01','B2'],['007','01','B2'],['013','01','B2'],['014','02','B2'],['018','02','B2'],['021','02','B2'],['022','03','B2'],['025','03','B2'],['026','03','B2'],['031','03','B2'],['032','03','B2'],['035','03','B2'],['036','04','B2'],['040','04','B2'],['041','04','B2'],['046','04','B2'],['047','04','B2'],['051','04','B2'],['054','05','B2'],['058','05','B2'],['059','05','B2'],['062','05','B2'],['063','06','B2'],['064','06','B1'],['065','06','B1'],['068','06','B1'],['069','06','B1'],['073','07','B2'],['074','07','B2'],['077','07','B2'],['080','07','B2'],['081','08','B2'],['085','08','B2'],['086','08','B2'],['091','08','B2'],['092','09','B2'],['096','09','B2'],['097','10','B2'],['100','10','B2'],['101','10','B2'],['104','10','B2'],['105','11','B2'],['112','11','B2'],['113','11','B2'],['117','11','B2'],['118','12','B2'],['121','12','B2'],['129','12','B2'],['130','12','B2'],['131','12','B1'],['134','12','B2'],['135','12','B2'],['139','12','B2'],['140','12','B2'],['148','12','B2'],['149','13','B2'],['150','13','B1'],['154','13','B2'],['155','13','B2'],['159','13','B2'],['160','13','B2'],['164','13','B2'],['165','13','B2'],['170','13','B2'],['171','14','B2'],['175','14','B2'],['176','14','B2'],['180','14','B2'],['181','14','B2'],['185','14','B2'],['186','14','B2'],['190','14','B2'],['191','15','B2'],['192','15','B1'],['202','15','B2'],['203','15','B2'],['213','15','B1'],['214','15','B2'],['215','16','B2'],['216','16','B1'],['217','16','B1'],['220','16','B1'],['221','16','B1'],['222','16','B2'],['223','17','B2'],['224','17','B1'],['225','17','B1'],['226','17','B1'],['227','17','B1'],['228','17','B1'],['231','17','B1'],['232','17','B1'],['233','17','B1'],['234','17','B2'],['235','18','B2'],['238','18','B1'],['239','18','B2']]};
+const UNITS={nakheel:[['002','01','A',34.49,15.21],['003','01','A',35.7,14.87],['004','01','A',36.85,14.51],['005','01','A',37.88,14.32],['006','01','A',38.85,14.02],['007','01','A',39.93,13.77],['008','01','A',40.99,13.36],['011','01','A',46.66,11.29],['012','01','A',47.78,10.94],['013','01','A',48.89,10.58],['014','01','A',50.01,10.23],['015','01','A',50.99,9.89],['016','01','A',51.99,9.57],['017','01','A',52.99,9.27],['018','01','A',54.16,8.91],['019','01','A',55.29,8.52],['022','02','A',60.15,8.9],['023','02','A',60.35,10.87],['024','02','A',60.55,12.84],['025','02','A',60.74,14.8],['026','02','A',60.94,16.77],['027','02','A',61.11,18.43],['028','02','A',61.31,20.39],['029','02','A',61.51,22.36],['030','02','A',61.71,24.32],['031','02','A',61.91,26.29],['034','03','A',56.98,29.58],['035','03','A',55.87,29.93],['036','03','A',54.76,30.29],['037','03','A',53.78,30.6],['038','03','A',52.67,30.95],['039','03','A',51.56,31.3],['040','03','A',50.45,31.65],['043','03','A',50.13,28.08],['044','03','A',51.24,27.72],['045','03','A',52.35,27.37],['046','03','A',53.61,27.01],['047','03','A',54.47,26.71],['048','03','A',55.55,26.36],['049','03','A',56.66,26.0],['052','04','A',56.85,18.89],['053','04','A',55.69,19.28],['054','04','A',54.51,19.54],['057','04','A',51.46,20.44],['058','04','A',50.46,20.87],['059','04','A',49.28,21.16],['062','04','A',47.86,18.18],['063','04','A',49.04,17.67],['064','04','A',50.15,17.32],['065','04','A',51.26,16.96],['068','04','A',54.18,15.97],['069','04','A',55.29,15.62],['070','04','A',56.4,15.26],['073','05','A',45.08,40.5],['074','05','A',44.67,38.72],['077','05','A',43.49,33.59],['078','05','A',43.06,31.74],['083','05','A',40.76,21.49],['086','05','A',43.07,21.8],['087','05','A',43.45,23.46],['090','05','A',45.07,30.29],['091','05','A',45.49,32.14],['092','05','A',45.9,33.91],['093','05','A',46.29,35.32],['094','05','A',46.72,37.47],['100','06','A',38.12,38.24],['103','06','A',40.01,37.03],['108','07','A',35.69,27.62],['115','07','A',37.67,26.4],['118','08','A',35.6,45.82],['119','08','A',35.17,43.97],['120','08','A',34.9,42.5],['121','08','A',34.44,40.72],['122','08','A',33.99,38.82],['123','08','A',33.62,36.9],['126','08','A',32.05,30.38],['127','08','A',31.63,28.53],['128','08','A',31.2,26.67],['129','08','A',30.78,24.82],['130','08','A',30.35,22.97],['131','08','A',29.93,21.12],['132','08','A',29.5,19.27],['135','09','A',39.48,51.01],['136','09','A',40.6,50.66],['137','09','A',41.71,50.3],['138','09','A',42.82,49.95],['139','09','A',43.93,49.6],['140','09','A',44.79,49.37],['141','09','A',45.91,49.03],['142','09','A',46.99,48.71],['143','09','A',48.15,48.26],['146','09','A',48.43,51.75],['147','09','A',47.33,52.07],['148','09','A',46.18,52.44],['149','09','A',45.09,52.76],['150','09','A',44.16,52.91],['151','09','A',43.1,53.28],['152','09','A',41.99,53.57],['153','09','A',40.88,53.9],['154','09','A',39.77,54.13]],aziziyah:[['001','01','B2',85.44,55.29],['002','01','B1',85.13,57.67],['005','01','B1',84.23,63.67],['006','01','B2',83.58,66.06],['007','01','B2',81.66,65.13],['013','01','B2',83.57,52.16],['014','02','B2',79.28,49.56],['018','02','B2',78.22,58.26],['021','02','B2',77.36,48.52],['022','03','B2',73.13,45.8],['025','03','B2',72.08,52.3],['026','03','B2',71.87,56.83],['031','03','B2',69.79,56.74],['032','03','B2',70.13,51.44],['035','03','B2',71.12,44.85],['036','04','B2',67.14,41.41],['040','04','B2',65.63,51.53],['041','04','B2',65.44,56.63],['046','04','B2',63.2,56.61],['047','04','B2',63.45,50.61],['051','04','B2',64.97,40.42],['054','05','B2',60.65,39.54],['058','05','B2',59.21,49.96],['059','05','B2',58.88,54.12],['062','05','B2',58.9,61.98],['063','06','B2',86.02,46.5],['064','06','B1',84.81,45.8],['065','06','B1',83.64,45.09],['068','06','B1',80.33,43.1],['069','06','B1',79.16,42.4],['073','07','B2',72.1,38.1],['074','07','B2',69.95,35.79],['077','07','B2',66.87,31.72],['080','07','B2',63.49,26.5],['081','08','B2',56.24,38.56],['085','08','B2',50.21,38.51],['086','08','B2',50.21,34.73],['091','08','B2',57.67,34.48],['092','09','B2',56.71,26.89],['096','09','B2',50.76,26.72],['097','10','B2',60.8,22.46],['100','10','B2',57.42,17.06],['101','10','B2',53.49,15.31],['104','10','B2',49.41,18.87],['105','11','B2',46.55,30.89],['112','11','B2',46.63,49.12],['113','11','B2',46.66,53.39],['117','11','B2',46.66,62.3],['118','12','B2',46.34,21.43],['121','12','B2',42.17,28.5],['129','12','B2',42.33,49.13],['130','12','B2',42.29,53.29],['131','12','B1',42.24,55.77],['134','12','B2',42.22,62.31],['135','12','B2',40.31,62.34],['139','12','B2',40.22,53.28],['140','12','B2',40.11,49.15],['148','12','B2',40.24,28.31],['149','13','B2',35.58,37.9],['150','13','B1',35.6,40.46],['154','13','B2',35.62,49.13],['155','13','B2',35.75,53.1],['159','13','B2',35.66,62.21],['160','13','B2',33.7,62.41],['164','13','B2',33.6,53.12],['165','13','B2',33.64,49.11],['170','13','B2',33.56,37.88],['171','14','B2',28.94,38.09],['175','14','B2',29.05,46.98],['176','14','B2',29.18,53.38],['180','14','B2',29.21,62.43],['181','14','B2',26.97,62.44],['185','14','B2',26.91,53.26],['186','14','B2',27.03,46.95],['190','14','B2',27.0,37.9],['191','15','B2',22.49,37.93],['192','15','B1',22.49,40.49],['202','15','B2',22.66,62.34],['203','15','B2',20.4,62.34],['213','15','B1',20.46,40.43],['214','15','B2',20.45,37.9],['215','16','B2',16.14,38.54],['216','16','B1',16.19,41.17],['217','16','B1',16.16,43.39],['220','16','B1',16.19,49.57],['221','16','B1',16.14,51.74],['222','16','B2',16.24,54.29],['223','17','B2',35.99,31.72],['224','17','B1',34.59,31.73],['225','17','B1',33.37,31.73],['226','17','B1',32.13,31.74],['227','17','B1',30.91,31.7],['228','17','B1',29.66,31.75],['231','17','B1',26.28,31.82],['232','17','B1',25.04,31.83],['233','17','B1',23.81,31.84],['234','17','B2',22.57,31.85],['235','18','B2',19.5,31.86],['238','18','B1',15.55,31.9],['239','18','B2',14.36,31.88]]};
 
 /* أهم الاستفسارات: [معرّف التصنيف، ترتيب السؤال داخله بدءاً من 0] */
 const TOP = [['exec',0],['exec',1],['money',0],['handover',1],['warranty',1]];
@@ -625,8 +657,8 @@ function findVilla(n){
   const hits=[]; for(const d of ['nakheel','aziziyah']){ const v=UNITS[d].find(x=>x[0]===n); if(v) hits.push({d, villa:v[0], block:v[1], model:v[2]}); }
   return hits.length?hits:{missing:n};
 }
-function renderUnitCard(r){
-  document.querySelectorAll('.chip.hit').forEach(c=>c.classList.remove('hit'));
+function renderUnitCard(r,fromMap){
+  document.querySelectorAll('.chip.hit,.mk.hit').forEach(c=>c.classList.remove('hit'));
   if(!r){ uRes.innerHTML=''; return; }
   if(r.missing){ uRes.innerHTML=`<div class="ucard none">${T().notFound(+r.missing)}</div>`; return; }
   uRes.innerHTML=(r.length>1?`<p class="umulti">${T().multi(r[0].villa)}</p>`:'')+r.map(x=>`<div class="ucard">
@@ -636,7 +668,9 @@ function renderUnitCard(r){
     <div class="kv"><span>${T().model}</span><b>${x.model}</b></div>
     <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">${T().seeModel}</a></div>`).join('');
   if(!r.some(x=>x.d===utab)){ utab=r[0].d; renderBlocks(); }
-  r.forEach(x=>{ const chip=document.querySelector(`.chip[data-v="${x.d}-${x.villa}"]`); if(chip) chip.classList.add('hit'); });
+  r.forEach(x=>{ document.querySelectorAll(`[data-v="${x.d}-${x.villa}"]`).forEach(el=>el.classList.add('hit')); });
+  const f=r.find(x=>x.d===utab)||r[0]; focusMarker(f.d,f.villa);
+  if(fromMap) uRes.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 function renderStats(){
   const all=[...UNITS.nakheel,...UNITS.aziziyah];
@@ -653,8 +687,41 @@ function renderBlocks(){
   const groups={}; UNITS[utab].forEach(v=>(groups[v[1]]=groups[v[1]]||[]).push(v));
   document.getElementById('ublocks').innerHTML=Object.keys(groups).sort().map(b=>`<div class="blk"><div class="bn">${T().block} ${b}<small>${T().villas(groups[b].length)}</small></div>
     <div class="chips">${groups[b].map(v=>`<button class="chip m-${v[2]}" data-v="${utab}-${v[0]}" title="${T().model} ${v[2]}">${v[0]}</button>`).join('')}</div></div>`).join('');
+  renderMap();
   document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{const n=c.dataset.v.split('-')[1];document.getElementById('usearch').value=n;renderUnitCard(findVilla(n));uRes.scrollIntoView({behavior:'smooth',block:'center'});});
 }
+
+/* ===== الخريطة ===== */
+const mapEl=document.getElementById('map'), mapIn=document.getElementById('mapin'), mkEl=document.getElementById('markers'), mapImg=document.getElementById('mapimg');
+let mz=100;
+function setZoom(z,cx,cy){
+  mz=Math.max(100,Math.min(400,z));
+  const fx=cx??((mapEl.scrollLeft+mapEl.clientWidth/2)/mapIn.offsetWidth), fy=cy??((mapEl.scrollTop+mapEl.clientHeight/2)/mapIn.offsetHeight);
+  mapIn.style.setProperty('--mz',mz+'%');
+  mapEl.scrollLeft=fx*mapIn.offsetWidth-mapEl.clientWidth/2; mapEl.scrollTop=fy*mapIn.offsetHeight-mapEl.clientHeight/2;
+}
+document.getElementById('zin').onclick=()=>setZoom(mz*1.5);
+document.getElementById('zout').onclick=()=>setZoom(mz/1.5);
+document.getElementById('zfit').onclick=()=>{setZoom(100);mapEl.scrollTo(0,0);};
+let drag=null;
+mapEl.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')return; drag={x:e.clientX,y:e.clientY,l:mapEl.scrollLeft,t:mapEl.scrollTop}; mapEl.classList.add('drag');});
+addEventListener('pointermove',e=>{if(!drag)return; mapEl.scrollLeft=drag.l-(e.clientX-drag.x); mapEl.scrollTop=drag.t-(e.clientY-drag.y);});
+addEventListener('pointerup',()=>{drag=null;mapEl.classList.remove('drag');});
+let pinch=null;
+mapEl.addEventListener('touchstart',e=>{if(e.touches.length===2){const [a,b]=e.touches; pinch={d:Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),z:mz};}},{passive:true});
+mapEl.addEventListener('touchmove',e=>{if(pinch&&e.touches.length===2){const [a,b]=e.touches; const d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY); setZoom(pinch.z*d/pinch.d);}},{passive:true});
+mapEl.addEventListener('touchend',()=>{pinch=null;});
+function renderMap(){
+  mapImg.src='map-'+utab+'.jpg';
+  mkEl.innerHTML=UNITS[utab].map(v=>`<div class="mk m-${v[2]}" style="left:${v[3]}%;top:${v[4]}%" data-v="${utab}-${v[0]}" data-n="${v[0]}"><span class="tip">${v[0]} · ${T().block} ${v[1]} · ${v[2]}</span></div>`).join('');
+  mkEl.querySelectorAll('.mk').forEach(m=>m.onclick=()=>{const n=m.dataset.v.split('-')[1];document.getElementById('usearch').value=n;renderUnitCard(findVilla(n),true);});
+}
+function focusMarker(d,villa){
+  const v=UNITS[d].find(x=>x[0]===villa); if(!v) return;
+  const go=()=>setZoom(mz<200?220:mz,v[3]/100,v[4]/100);
+  if(mapImg.complete&&mapImg.naturalWidth) go(); else mapImg.onload=go;
+}
+
 function renderUnits(){ document.getElementById('usearch').placeholder=T().unitsSearch; renderStats(); renderBlocks(); const q=document.getElementById('usearch').value; renderUnitCard(q?findVilla(q):null); }
 document.getElementById('usearch').addEventListener('input',e=>renderUnitCard(e.target.value.trim()?findVilla(e.target.value):null));
 

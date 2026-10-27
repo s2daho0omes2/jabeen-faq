@@ -5,502 +5,702 @@
    {
     "villa": "002",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 34.49,
+    "y": 15.21
    },
    {
     "villa": "003",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 35.7,
+    "y": 14.87
    },
    {
     "villa": "004",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 36.85,
+    "y": 14.51
    },
    {
     "villa": "005",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 37.88,
+    "y": 14.32
    },
    {
     "villa": "006",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 38.85,
+    "y": 14.02
    },
    {
     "villa": "007",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 39.93,
+    "y": 13.77
    },
    {
     "villa": "008",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 40.99,
+    "y": 13.36
    },
    {
     "villa": "011",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 46.66,
+    "y": 11.29
    },
    {
     "villa": "012",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 47.78,
+    "y": 10.94
    },
    {
     "villa": "013",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 48.89,
+    "y": 10.58
    },
    {
     "villa": "014",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 50.01,
+    "y": 10.23
    },
    {
     "villa": "015",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 50.99,
+    "y": 9.89
    },
    {
     "villa": "016",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 51.99,
+    "y": 9.57
    },
    {
     "villa": "017",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 52.99,
+    "y": 9.27
    },
    {
     "villa": "018",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 54.16,
+    "y": 8.91
    },
    {
     "villa": "019",
     "block": "01",
-    "model": "A"
+    "model": "A",
+    "x": 55.29,
+    "y": 8.52
    },
    {
     "villa": "022",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 60.15,
+    "y": 8.9
    },
    {
     "villa": "023",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 60.35,
+    "y": 10.87
    },
    {
     "villa": "024",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 60.55,
+    "y": 12.84
    },
    {
     "villa": "025",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 60.74,
+    "y": 14.8
    },
    {
     "villa": "026",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 60.94,
+    "y": 16.77
    },
    {
     "villa": "027",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 61.11,
+    "y": 18.43
    },
    {
     "villa": "028",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 61.31,
+    "y": 20.39
    },
    {
     "villa": "029",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 61.51,
+    "y": 22.36
    },
    {
     "villa": "030",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 61.71,
+    "y": 24.32
    },
    {
     "villa": "031",
     "block": "02",
-    "model": "A"
+    "model": "A",
+    "x": 61.91,
+    "y": 26.29
    },
    {
     "villa": "034",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 56.98,
+    "y": 29.58
    },
    {
     "villa": "035",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 55.87,
+    "y": 29.93
    },
    {
     "villa": "036",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 54.76,
+    "y": 30.29
    },
    {
     "villa": "037",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 53.78,
+    "y": 30.6
    },
    {
     "villa": "038",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 52.67,
+    "y": 30.95
    },
    {
     "villa": "039",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 51.56,
+    "y": 31.3
    },
    {
     "villa": "040",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 50.45,
+    "y": 31.65
    },
    {
     "villa": "043",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 50.13,
+    "y": 28.08
    },
    {
     "villa": "044",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 51.24,
+    "y": 27.72
    },
    {
     "villa": "045",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 52.35,
+    "y": 27.37
    },
    {
     "villa": "046",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 53.61,
+    "y": 27.01
    },
    {
     "villa": "047",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 54.47,
+    "y": 26.71
    },
    {
     "villa": "048",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 55.55,
+    "y": 26.36
    },
    {
     "villa": "049",
     "block": "03",
-    "model": "A"
+    "model": "A",
+    "x": 56.66,
+    "y": 26.0
    },
    {
     "villa": "052",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 56.85,
+    "y": 18.89
    },
    {
     "villa": "053",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 55.69,
+    "y": 19.28
    },
    {
     "villa": "054",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 54.51,
+    "y": 19.54
    },
    {
     "villa": "057",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 51.46,
+    "y": 20.44
    },
    {
     "villa": "058",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 50.46,
+    "y": 20.87
    },
    {
     "villa": "059",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 49.28,
+    "y": 21.16
    },
    {
     "villa": "062",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 47.86,
+    "y": 18.18
    },
    {
     "villa": "063",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 49.04,
+    "y": 17.67
    },
    {
     "villa": "064",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 50.15,
+    "y": 17.32
    },
    {
     "villa": "065",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 51.26,
+    "y": 16.96
    },
    {
     "villa": "068",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 54.18,
+    "y": 15.97
    },
    {
     "villa": "069",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 55.29,
+    "y": 15.62
    },
    {
     "villa": "070",
     "block": "04",
-    "model": "A"
+    "model": "A",
+    "x": 56.4,
+    "y": 15.26
    },
    {
     "villa": "073",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 45.08,
+    "y": 40.5
    },
    {
     "villa": "074",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 44.67,
+    "y": 38.72
    },
    {
     "villa": "077",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 43.49,
+    "y": 33.59
    },
    {
     "villa": "078",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 43.06,
+    "y": 31.74
    },
    {
     "villa": "083",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 40.76,
+    "y": 21.49
    },
    {
     "villa": "086",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 43.07,
+    "y": 21.8
    },
    {
     "villa": "087",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 43.45,
+    "y": 23.46
    },
    {
     "villa": "090",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 45.07,
+    "y": 30.29
    },
    {
     "villa": "091",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 45.49,
+    "y": 32.14
    },
    {
     "villa": "092",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 45.9,
+    "y": 33.91
    },
    {
     "villa": "093",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 46.29,
+    "y": 35.32
    },
    {
     "villa": "094",
     "block": "05",
-    "model": "A"
+    "model": "A",
+    "x": 46.72,
+    "y": 37.47
    },
    {
     "villa": "100",
     "block": "06",
-    "model": "A"
+    "model": "A",
+    "x": 38.12,
+    "y": 38.24
    },
    {
     "villa": "103",
     "block": "06",
-    "model": "A"
+    "model": "A",
+    "x": 40.01,
+    "y": 37.03
    },
    {
     "villa": "108",
     "block": "07",
-    "model": "A"
+    "model": "A",
+    "x": 35.69,
+    "y": 27.62
    },
    {
     "villa": "115",
     "block": "07",
-    "model": "A"
+    "model": "A",
+    "x": 37.67,
+    "y": 26.4
    },
    {
     "villa": "118",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 35.6,
+    "y": 45.82
    },
    {
     "villa": "119",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 35.17,
+    "y": 43.97
    },
    {
     "villa": "120",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 34.9,
+    "y": 42.5
    },
    {
     "villa": "121",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 34.44,
+    "y": 40.72
    },
    {
     "villa": "122",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 33.99,
+    "y": 38.82
    },
    {
     "villa": "123",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 33.62,
+    "y": 36.9
    },
    {
     "villa": "126",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 32.05,
+    "y": 30.38
    },
    {
     "villa": "127",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 31.63,
+    "y": 28.53
    },
    {
     "villa": "128",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 31.2,
+    "y": 26.67
    },
    {
     "villa": "129",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 30.78,
+    "y": 24.82
    },
    {
     "villa": "130",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 30.35,
+    "y": 22.97
    },
    {
     "villa": "131",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 29.93,
+    "y": 21.12
    },
    {
     "villa": "132",
     "block": "08",
-    "model": "A"
+    "model": "A",
+    "x": 29.5,
+    "y": 19.27
    },
    {
     "villa": "135",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 39.48,
+    "y": 51.01
    },
    {
     "villa": "136",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 40.6,
+    "y": 50.66
    },
    {
     "villa": "137",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 41.71,
+    "y": 50.3
    },
    {
     "villa": "138",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 42.82,
+    "y": 49.95
    },
    {
     "villa": "139",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 43.93,
+    "y": 49.6
    },
    {
     "villa": "140",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 44.79,
+    "y": 49.37
    },
    {
     "villa": "141",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 45.91,
+    "y": 49.03
    },
    {
     "villa": "142",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 46.99,
+    "y": 48.71
    },
    {
     "villa": "143",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 48.15,
+    "y": 48.26
    },
    {
     "villa": "146",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 48.43,
+    "y": 51.75
    },
    {
     "villa": "147",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 47.33,
+    "y": 52.07
    },
    {
     "villa": "148",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 46.18,
+    "y": 52.44
    },
    {
     "villa": "149",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 45.09,
+    "y": 52.76
    },
    {
     "villa": "150",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 44.16,
+    "y": 52.91
    },
    {
     "villa": "151",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 43.1,
+    "y": 53.28
    },
    {
     "villa": "152",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 41.99,
+    "y": 53.57
    },
    {
     "villa": "153",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 40.88,
+    "y": 53.9
    },
    {
     "villa": "154",
     "block": "09",
-    "model": "A"
+    "model": "A",
+    "x": 39.77,
+    "y": 54.13
    }
   ]
  },
@@ -510,502 +710,702 @@
    {
     "villa": "001",
     "block": "01",
-    "model": "B2"
+    "model": "B2",
+    "x": 85.44,
+    "y": 55.29
    },
    {
     "villa": "002",
     "block": "01",
-    "model": "B1"
+    "model": "B1",
+    "x": 85.13,
+    "y": 57.67
    },
    {
     "villa": "005",
     "block": "01",
-    "model": "B1"
+    "model": "B1",
+    "x": 84.23,
+    "y": 63.67
    },
    {
     "villa": "006",
     "block": "01",
-    "model": "B2"
+    "model": "B2",
+    "x": 83.58,
+    "y": 66.06
    },
    {
     "villa": "007",
     "block": "01",
-    "model": "B2"
+    "model": "B2",
+    "x": 81.66,
+    "y": 65.13
    },
    {
     "villa": "013",
     "block": "01",
-    "model": "B2"
+    "model": "B2",
+    "x": 83.57,
+    "y": 52.16
    },
    {
     "villa": "014",
     "block": "02",
-    "model": "B2"
+    "model": "B2",
+    "x": 79.28,
+    "y": 49.56
    },
    {
     "villa": "018",
     "block": "02",
-    "model": "B2"
+    "model": "B2",
+    "x": 78.22,
+    "y": 58.26
    },
    {
     "villa": "021",
     "block": "02",
-    "model": "B2"
+    "model": "B2",
+    "x": 77.36,
+    "y": 48.52
    },
    {
     "villa": "022",
     "block": "03",
-    "model": "B2"
+    "model": "B2",
+    "x": 73.13,
+    "y": 45.8
    },
    {
     "villa": "025",
     "block": "03",
-    "model": "B2"
+    "model": "B2",
+    "x": 72.08,
+    "y": 52.3
    },
    {
     "villa": "026",
     "block": "03",
-    "model": "B2"
+    "model": "B2",
+    "x": 71.87,
+    "y": 56.83
    },
    {
     "villa": "031",
     "block": "03",
-    "model": "B2"
+    "model": "B2",
+    "x": 69.79,
+    "y": 56.74
    },
    {
     "villa": "032",
     "block": "03",
-    "model": "B2"
+    "model": "B2",
+    "x": 70.13,
+    "y": 51.44
    },
    {
     "villa": "035",
     "block": "03",
-    "model": "B2"
+    "model": "B2",
+    "x": 71.12,
+    "y": 44.85
    },
    {
     "villa": "036",
     "block": "04",
-    "model": "B2"
+    "model": "B2",
+    "x": 67.14,
+    "y": 41.41
    },
    {
     "villa": "040",
     "block": "04",
-    "model": "B2"
+    "model": "B2",
+    "x": 65.63,
+    "y": 51.53
    },
    {
     "villa": "041",
     "block": "04",
-    "model": "B2"
+    "model": "B2",
+    "x": 65.44,
+    "y": 56.63
    },
    {
     "villa": "046",
     "block": "04",
-    "model": "B2"
+    "model": "B2",
+    "x": 63.2,
+    "y": 56.61
    },
    {
     "villa": "047",
     "block": "04",
-    "model": "B2"
+    "model": "B2",
+    "x": 63.45,
+    "y": 50.61
    },
    {
     "villa": "051",
     "block": "04",
-    "model": "B2"
+    "model": "B2",
+    "x": 64.97,
+    "y": 40.42
    },
    {
     "villa": "054",
     "block": "05",
-    "model": "B2"
+    "model": "B2",
+    "x": 60.65,
+    "y": 39.54
    },
    {
     "villa": "058",
     "block": "05",
-    "model": "B2"
+    "model": "B2",
+    "x": 59.21,
+    "y": 49.96
    },
    {
     "villa": "059",
     "block": "05",
-    "model": "B2"
+    "model": "B2",
+    "x": 58.88,
+    "y": 54.12
    },
    {
     "villa": "062",
     "block": "05",
-    "model": "B2"
+    "model": "B2",
+    "x": 58.9,
+    "y": 61.98
    },
    {
     "villa": "063",
     "block": "06",
-    "model": "B2"
+    "model": "B2",
+    "x": 86.02,
+    "y": 46.5
    },
    {
     "villa": "064",
     "block": "06",
-    "model": "B1"
+    "model": "B1",
+    "x": 84.81,
+    "y": 45.8
    },
    {
     "villa": "065",
     "block": "06",
-    "model": "B1"
+    "model": "B1",
+    "x": 83.64,
+    "y": 45.09
    },
    {
     "villa": "068",
     "block": "06",
-    "model": "B1"
+    "model": "B1",
+    "x": 80.33,
+    "y": 43.1
    },
    {
     "villa": "069",
     "block": "06",
-    "model": "B1"
+    "model": "B1",
+    "x": 79.16,
+    "y": 42.4
    },
    {
     "villa": "073",
     "block": "07",
-    "model": "B2"
+    "model": "B2",
+    "x": 72.1,
+    "y": 38.1
    },
    {
     "villa": "074",
     "block": "07",
-    "model": "B2"
+    "model": "B2",
+    "x": 69.95,
+    "y": 35.79
    },
    {
     "villa": "077",
     "block": "07",
-    "model": "B2"
+    "model": "B2",
+    "x": 66.87,
+    "y": 31.72
    },
    {
     "villa": "080",
     "block": "07",
-    "model": "B2"
+    "model": "B2",
+    "x": 63.49,
+    "y": 26.5
    },
    {
     "villa": "081",
     "block": "08",
-    "model": "B2"
+    "model": "B2",
+    "x": 56.24,
+    "y": 38.56
    },
    {
     "villa": "085",
     "block": "08",
-    "model": "B2"
+    "model": "B2",
+    "x": 50.21,
+    "y": 38.51
    },
    {
     "villa": "086",
     "block": "08",
-    "model": "B2"
+    "model": "B2",
+    "x": 50.21,
+    "y": 34.73
    },
    {
     "villa": "091",
     "block": "08",
-    "model": "B2"
+    "model": "B2",
+    "x": 57.67,
+    "y": 34.48
    },
    {
     "villa": "092",
     "block": "09",
-    "model": "B2"
+    "model": "B2",
+    "x": 56.71,
+    "y": 26.89
    },
    {
     "villa": "096",
     "block": "09",
-    "model": "B2"
+    "model": "B2",
+    "x": 50.76,
+    "y": 26.72
    },
    {
     "villa": "097",
     "block": "10",
-    "model": "B2"
+    "model": "B2",
+    "x": 60.8,
+    "y": 22.46
    },
    {
     "villa": "100",
     "block": "10",
-    "model": "B2"
+    "model": "B2",
+    "x": 57.42,
+    "y": 17.06
    },
    {
     "villa": "101",
     "block": "10",
-    "model": "B2"
+    "model": "B2",
+    "x": 53.49,
+    "y": 15.31
    },
    {
     "villa": "104",
     "block": "10",
-    "model": "B2"
+    "model": "B2",
+    "x": 49.41,
+    "y": 18.87
    },
    {
     "villa": "105",
     "block": "11",
-    "model": "B2"
+    "model": "B2",
+    "x": 46.55,
+    "y": 30.89
    },
    {
     "villa": "112",
     "block": "11",
-    "model": "B2"
+    "model": "B2",
+    "x": 46.63,
+    "y": 49.12
    },
    {
     "villa": "113",
     "block": "11",
-    "model": "B2"
+    "model": "B2",
+    "x": 46.66,
+    "y": 53.39
    },
    {
     "villa": "117",
     "block": "11",
-    "model": "B2"
+    "model": "B2",
+    "x": 46.66,
+    "y": 62.3
    },
    {
     "villa": "118",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 46.34,
+    "y": 21.43
    },
    {
     "villa": "121",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 42.17,
+    "y": 28.5
    },
    {
     "villa": "129",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 42.33,
+    "y": 49.13
    },
    {
     "villa": "130",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 42.29,
+    "y": 53.29
    },
    {
     "villa": "131",
     "block": "12",
-    "model": "B1"
+    "model": "B1",
+    "x": 42.24,
+    "y": 55.77
    },
    {
     "villa": "134",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 42.22,
+    "y": 62.31
    },
    {
     "villa": "135",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 40.31,
+    "y": 62.34
    },
    {
     "villa": "139",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 40.22,
+    "y": 53.28
    },
    {
     "villa": "140",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 40.11,
+    "y": 49.15
    },
    {
     "villa": "148",
     "block": "12",
-    "model": "B2"
+    "model": "B2",
+    "x": 40.24,
+    "y": 28.31
    },
    {
     "villa": "149",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 35.58,
+    "y": 37.9
    },
    {
     "villa": "150",
     "block": "13",
-    "model": "B1"
+    "model": "B1",
+    "x": 35.6,
+    "y": 40.46
    },
    {
     "villa": "154",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 35.62,
+    "y": 49.13
    },
    {
     "villa": "155",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 35.75,
+    "y": 53.1
    },
    {
     "villa": "159",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 35.66,
+    "y": 62.21
    },
    {
     "villa": "160",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 33.7,
+    "y": 62.41
    },
    {
     "villa": "164",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 33.6,
+    "y": 53.12
    },
    {
     "villa": "165",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 33.64,
+    "y": 49.11
    },
    {
     "villa": "170",
     "block": "13",
-    "model": "B2"
+    "model": "B2",
+    "x": 33.56,
+    "y": 37.88
    },
    {
     "villa": "171",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 28.94,
+    "y": 38.09
    },
    {
     "villa": "175",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 29.05,
+    "y": 46.98
    },
    {
     "villa": "176",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 29.18,
+    "y": 53.38
    },
    {
     "villa": "180",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 29.21,
+    "y": 62.43
    },
    {
     "villa": "181",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 26.97,
+    "y": 62.44
    },
    {
     "villa": "185",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 26.91,
+    "y": 53.26
    },
    {
     "villa": "186",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 27.03,
+    "y": 46.95
    },
    {
     "villa": "190",
     "block": "14",
-    "model": "B2"
+    "model": "B2",
+    "x": 27.0,
+    "y": 37.9
    },
    {
     "villa": "191",
     "block": "15",
-    "model": "B2"
+    "model": "B2",
+    "x": 22.49,
+    "y": 37.93
    },
    {
     "villa": "192",
     "block": "15",
-    "model": "B1"
+    "model": "B1",
+    "x": 22.49,
+    "y": 40.49
    },
    {
     "villa": "202",
     "block": "15",
-    "model": "B2"
+    "model": "B2",
+    "x": 22.66,
+    "y": 62.34
    },
    {
     "villa": "203",
     "block": "15",
-    "model": "B2"
+    "model": "B2",
+    "x": 20.4,
+    "y": 62.34
    },
    {
     "villa": "213",
     "block": "15",
-    "model": "B1"
+    "model": "B1",
+    "x": 20.46,
+    "y": 40.43
    },
    {
     "villa": "214",
     "block": "15",
-    "model": "B2"
+    "model": "B2",
+    "x": 20.45,
+    "y": 37.9
    },
    {
     "villa": "215",
     "block": "16",
-    "model": "B2"
+    "model": "B2",
+    "x": 16.14,
+    "y": 38.54
    },
    {
     "villa": "216",
     "block": "16",
-    "model": "B1"
+    "model": "B1",
+    "x": 16.19,
+    "y": 41.17
    },
    {
     "villa": "217",
     "block": "16",
-    "model": "B1"
+    "model": "B1",
+    "x": 16.16,
+    "y": 43.39
    },
    {
     "villa": "220",
     "block": "16",
-    "model": "B1"
+    "model": "B1",
+    "x": 16.19,
+    "y": 49.57
    },
    {
     "villa": "221",
     "block": "16",
-    "model": "B1"
+    "model": "B1",
+    "x": 16.14,
+    "y": 51.74
    },
    {
     "villa": "222",
     "block": "16",
-    "model": "B2"
+    "model": "B2",
+    "x": 16.24,
+    "y": 54.29
    },
    {
     "villa": "223",
     "block": "17",
-    "model": "B2"
+    "model": "B2",
+    "x": 35.99,
+    "y": 31.72
    },
    {
     "villa": "224",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 34.59,
+    "y": 31.73
    },
    {
     "villa": "225",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 33.37,
+    "y": 31.73
    },
    {
     "villa": "226",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 32.13,
+    "y": 31.74
    },
    {
     "villa": "227",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 30.91,
+    "y": 31.7
    },
    {
     "villa": "228",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 29.66,
+    "y": 31.75
    },
    {
     "villa": "231",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 26.28,
+    "y": 31.82
    },
    {
     "villa": "232",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 25.04,
+    "y": 31.83
    },
    {
     "villa": "233",
     "block": "17",
-    "model": "B1"
+    "model": "B1",
+    "x": 23.81,
+    "y": 31.84
    },
    {
     "villa": "234",
     "block": "17",
-    "model": "B2"
+    "model": "B2",
+    "x": 22.57,
+    "y": 31.85
    },
    {
     "villa": "235",
     "block": "18",
-    "model": "B2"
+    "model": "B2",
+    "x": 19.5,
+    "y": 31.86
    },
    {
     "villa": "238",
     "block": "18",
-    "model": "B1"
+    "model": "B1",
+    "x": 15.55,
+    "y": 31.9
    },
    {
     "villa": "239",
     "block": "18",
-    "model": "B2"
+    "model": "B2",
+    "x": 14.36,
+    "y": 31.88
    }
   ]
  }
