@@ -130,7 +130,15 @@
   .utabs button{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:18px 22px;border-radius:16px;border:2px solid var(--line);color:var(--green);background:var(--card);transition:.2s;position:relative}
   .utabs button b{font-size:clamp(18px,1.6vw,22px);font-weight:800}
   .utabs button span{color:var(--muted);font-size:14px}
-  .utabs button .n{position:absolute;inset-inline-end:20px;top:50%;transform:translateY(-50%);font-size:30px;font-weight:800;color:var(--gold)}
+  .utabs button{padding-inline-end:110px;min-height:118px}
+  .utabs button .n{position:absolute;inset-inline-end:22px;top:50%;transform:translateY(-50%);font-size:38px;font-weight:800;color:var(--gold);line-height:1;text-align:center}
+  .utabs button .n small{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:2px}
+  .utabs button.on .n small{color:rgba(255,255,255,.8)}
+  .utabs button em{display:flex;gap:14px;flex-wrap:wrap;font-style:normal;font-size:14px;font-weight:700;margin-top:6px}
+  .utabs button em .mm{display:inline-flex;align-items:center;gap:5px;unicode-bidi:isolate;color:var(--text)}
+  .utabs button em .mm b{font-size:16px;color:var(--green)}
+  .utabs button em i{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.15)}
+  .utabs button.on em .mm,.utabs button.on em .mm b{color:#fff}
   .utabs button:hover{border-color:var(--gold)}
   .utabs button.on{background:linear-gradient(135deg,var(--cta1),var(--cta2));color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(0,0,0,.12)}
   .utabs button.on span{color:rgba(255,255,255,.8)}
@@ -283,7 +291,6 @@
       <input id="usearch" type="search" inputmode="numeric" autocomplete="off" maxlength="3">
     </div>
     <div id="uresult"></div>
-    <div class="stats" id="ustats"></div>
     <div class="utabs" id="utabs"></div>
     <div class="legend" id="ulegend"></div>
     <div class="mapbox">
@@ -388,7 +395,7 @@ const UI = {
     allQ:'جميع الأسئلة', allQSub:n=>`عرض القائمة الكاملة (${n} سؤالاً)`,
     unitsTitle:'الوحدات المخصصة لياسرف', unitsSub:'200 فيلا في حيي النخيل والعزيزية', unitsSearch:'اكتب رقم الفيلا، مثل 131',
     unitsNote:'الأرقام وفق الكشف المخصص لشركة ياسرف. لتفاصيل كل نموذج (المساحة والمخطط والسعر) راجع موقع مشروعات.',
-    total:'إجمالي الفلل', nakheel:'النخيل', aziziyah:'العزيزية', nakheelSub:'100 فيلا · نموذج A · 9 بلوكات', aziziyahSub:'100 فيلا · نموذج B1 وB2 · 18 بلوكاً', models:'النماذج', block:'البلوك', model:'النموذج', district:'الحي', villaNo:'فيلا رقم',
+    total:'إجمالي الفلل', nakheel:'النخيل', aziziyah:'العزيزية', nakheelSub:'9 بلوكات · نموذج واحد', aziziyahSub:'18 بلوكاً · نموذجان', models:'النماذج', block:'البلوك', model:'النموذج', district:'الحي', villaNo:'فيلا رقم',
     seeModel:'شاهد النموذج على موقع مشروعات ←', notFound:n=>`الفيلا رقم ${n} ليست ضمن الوحدات المخصصة لياسرف.`, villas:n=>n===1?'فيلا واحدة':n===2?'فيلتان':n<=10?n+' فلل':n+' فيلا',
     mapFit:'ملاءمة', mapHint:'اضغط على أي نقطة لعرض بيانات الفيلا. كبّر بالأزرار أو بإصبعين.', blocksTitle:'التوزيع حسب البلوك',
     modelA:'نموذج A', modelB1:'نموذج B1', modelB2:'نموذج B2', multi:n=>`الرقم ${+n} موجود في الحيين، تأكد من الحي المخصص لك:`,
@@ -412,7 +419,7 @@ const UI = {
     allQ:'All questions', allQSub:n=>`View the full list (${n} questions)`,
     unitsTitle:'Units Allocated to Yasref', unitsSub:'200 villas in Al‑Nakheel and Al‑Aziziyah', unitsSearch:'Enter a villa number, e.g. 131',
     unitsNote:'Numbers are per the allocation list for Yasref. For each model’s details (area, plan and price) see the Mashroat website.',
-    total:'Total villas', nakheel:'Al‑Nakheel', aziziyah:'Al‑Aziziyah', nakheelSub:'100 villas · Model A · 9 blocks', aziziyahSub:'100 villas · Models B1 & B2 · 18 blocks', models:'Models', block:'Block', model:'Model', district:'District', villaNo:'Villa No.',
+    total:'Total villas', nakheel:'Al‑Nakheel', aziziyah:'Al‑Aziziyah', nakheelSub:'9 blocks · one model', aziziyahSub:'18 blocks · two models', models:'Models', block:'Block', model:'Model', district:'District', villaNo:'Villa No.',
     seeModel:'View the model on Mashroat →', notFound:n=>`Villa ${n} is not among the units allocated to Yasref.`, villas:n=>n===1?'1 villa':n+' villas',
     mapFit:'Fit', mapHint:'Tap any dot to see the villa details. Zoom with the buttons or pinch.', blocksTitle:'Distribution by block',
     modelA:'Model A', modelB1:'Model B1', modelB2:'Model B2', multi:n=>`Number ${+n} exists in both districts; check which district is yours:`,
@@ -725,14 +732,12 @@ function renderUnitCard(r,fromMap){
 function renderStats(){
   const all=[...UNITS.nakheel,...UNITS.aziziyah];
   const cnt=m=>all.filter(x=>x[2]===m).length;
-  document.getElementById('ustats').innerHTML=
-    `<div class="stat"><b>${all.length}</b><span>${T().total}</span></div>`+
-    `<div class="stat"><b>${UNITS.nakheel.length}</b><span>${T().nakheel} · ${T().modelA}</span></div>`+
-    `<div class="stat"><b>${UNITS.aziziyah.length}</b><span>${T().aziziyah}</span><em><span class="mm"><i class="m-B1"></i><b>${cnt('B1')}</b>${T().modelB1}</span><span class="mm"><i class="m-B2"></i><b>${cnt('B2')}</b>${T().modelB2}</span></em></div>`;
   document.getElementById('ulegend').innerHTML=['A','B1','B2'].map(m=>`<span><i class="m-${m}"></i><b>${cnt(m)}</b>${T().villas(cnt(m)).replace(/^\d+\s*/,'')} ${T()['model'+m]}</span>`).join('');
 }
 function renderBlocks(){
-  document.getElementById('utabs').innerHTML=['nakheel','aziziyah'].map(d=>`<button class="${utab===d?'on':''}" data-d="${d}"><b>${T()[d]}</b><span>${T()[d+'Sub']}</span><span class="n">${UNITS[d].length}</span></button>`).join('');
+  const mc=(d,m)=>UNITS[d].filter(x=>x[2]===m).length;
+  const models=d=>['A','B1','B2'].filter(m=>mc(d,m)).map(m=>`<span class="mm"><i class="m-${m}"></i><b>${mc(d,m)}</b>${T()['model'+m]}</span>`).join('');
+  document.getElementById('utabs').innerHTML=['nakheel','aziziyah'].map(d=>`<button class="${utab===d?'on':''}" data-d="${d}"><b>${T()[d]}</b><span>${T()[d+'Sub']}</span><em>${models(d)}</em><span class="n">${UNITS[d].length}<small>${T().villas(UNITS[d].length).replace(/^\d+\s*/,'')}</small></span></button>`).join('');
   document.querySelectorAll('#utabs button').forEach(b=>b.onclick=()=>{utab=b.dataset.d;renderBlocks();});
   const groups={}; UNITS[utab].forEach(v=>(groups[v[1]]=groups[v[1]]||[]).push(v));
   document.getElementById('ublocks').innerHTML=Object.keys(groups).sort().map(b=>`<div class="blk"><div class="bn">${T().block} ${b}<small>${T().villas(groups[b].length)}</small></div>
