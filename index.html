@@ -139,6 +139,7 @@
   :root[data-theme="dark"] .m-A{background:#213a2e;color:#a9dfc2;border-color:#2f5240}
   :root[data-theme="dark"] .m-B1{background:#3a3118;color:#e6cf8a;border-color:#5a4c22}
   :root[data-theme="dark"] .m-B2{background:#1b3236;color:#9fd3dc;border-color:#2c4d53}
+  .umulti{color:var(--gold);font-weight:700;font-size:15px;margin:0 4px 10px}
   .unote{color:var(--muted);font-size:13.5px;margin-top:16px}
 
   /* info banner */
@@ -310,7 +311,7 @@ const UI = {
     unitsNote:'الأرقام وفق الكشف المخصص لشركة ياسرف. لتفاصيل كل نموذج (المساحة والمخطط والسعر) راجع موقع مشروعات.',
     total:'إجمالي الفلل', nakheel:'النخيل', aziziyah:'العزيزية', models:'النماذج', block:'البلوك', model:'النموذج', district:'الحي', villaNo:'فيلا رقم',
     seeModel:'شاهد النموذج على موقع مشروعات ←', notFound:n=>`الفيلا رقم ${n} ليست ضمن الوحدات المخصصة لياسرف.`, villas:n=>n===1?'فيلا واحدة':n===2?'فيلتان':n<=10?n+' فلل':n+' فيلا',
-    modelA:'نموذج A', modelB1:'نموذج B1', modelB2:'نموذج B2',
+    modelA:'نموذج A', modelB1:'نموذج B1', modelB2:'نموذج B2', multi:n=>`الرقم ${+n} موجود في الحيين، تأكد من الحي المخصص لك:`,
     plural:n=>n===1?'سؤال واحد':n===2?'سؤالان':n<=10?n+' أسئلة':n+' سؤالاً',
   },
   en:{
@@ -332,7 +333,7 @@ const UI = {
     unitsNote:'Numbers are per the allocation list for Yasref. For each model’s details (area, plan and price) see the Mashroat website.',
     total:'Total villas', nakheel:'Al‑Nakheel', aziziyah:'Al‑Aziziyah', models:'Models', block:'Block', model:'Model', district:'District', villaNo:'Villa No.',
     seeModel:'View the model on Mashroat →', notFound:n=>`Villa ${n} is not among the units allocated to Yasref.`, villas:n=>n===1?'1 villa':n+' villas',
-    modelA:'Model A', modelB1:'Model B1', modelB2:'Model B2',
+    modelA:'Model A', modelB1:'Model B1', modelB2:'Model B2', multi:n=>`Number ${+n} exists in both districts; check which district is yours:`,
     plural:n=>n===1?'1 question':n+' questions',
   }
 };
@@ -621,21 +622,21 @@ let utab='nakheel';
 const UD = {nakheel:'nakheel', aziziyah:'aziziyah'};
 function findVilla(n){
   n=String(n).replace(/\D/g,''); if(!n) return null; n=n.padStart(3,'0');
-  for(const d of ['nakheel','aziziyah']){ const v=UNITS[d].find(x=>x[0]===n); if(v) return {d, villa:v[0], block:v[1], model:v[2]}; }
-  return {missing:n};
+  const hits=[]; for(const d of ['nakheel','aziziyah']){ const v=UNITS[d].find(x=>x[0]===n); if(v) hits.push({d, villa:v[0], block:v[1], model:v[2]}); }
+  return hits.length?hits:{missing:n};
 }
 function renderUnitCard(r){
-  if(!r){ uRes.innerHTML=''; document.querySelectorAll('.chip.hit').forEach(c=>c.classList.remove('hit')); return; }
-  if(r.missing){ uRes.innerHTML=`<div class="ucard none">${T().notFound(+r.missing)}</div>`; return; }
-  uRes.innerHTML=`<div class="ucard">
-    <div class="big">${r.villa}<small>${T().villaNo}</small></div>
-    <div class="kv"><span>${T().district}</span><b>${T()[r.d]}</b></div>
-    <div class="kv"><span>${T().block}</span><b>${r.block}</b></div>
-    <div class="kv"><span>${T().model}</span><b>${r.model}</b></div>
-    <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">${T().seeModel}</a></div>`;
-  if(utab!==r.d){ utab=r.d; renderBlocks(); }
   document.querySelectorAll('.chip.hit').forEach(c=>c.classList.remove('hit'));
-  const chip=document.querySelector(`.chip[data-v="${r.d}-${r.villa}"]`); if(chip){ chip.classList.add('hit'); }
+  if(!r){ uRes.innerHTML=''; return; }
+  if(r.missing){ uRes.innerHTML=`<div class="ucard none">${T().notFound(+r.missing)}</div>`; return; }
+  uRes.innerHTML=(r.length>1?`<p class="umulti">${T().multi(r[0].villa)}</p>`:'')+r.map(x=>`<div class="ucard">
+    <div class="big">${x.villa}<small>${T().villaNo}</small></div>
+    <div class="kv"><span>${T().district}</span><b>${T()[x.d]}</b></div>
+    <div class="kv"><span>${T().block}</span><b>${x.block}</b></div>
+    <div class="kv"><span>${T().model}</span><b>${x.model}</b></div>
+    <a href="https://mashroat.com.sa/yanbu-project/" target="_blank" rel="noopener">${T().seeModel}</a></div>`).join('');
+  if(!r.some(x=>x.d===utab)){ utab=r[0].d; renderBlocks(); }
+  r.forEach(x=>{ const chip=document.querySelector(`.chip[data-v="${x.d}-${x.villa}"]`); if(chip) chip.classList.add('hit'); });
 }
 function renderStats(){
   const all=[...UNITS.nakheel,...UNITS.aziziyah];
