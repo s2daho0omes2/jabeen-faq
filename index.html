@@ -681,7 +681,7 @@ function renderFaq(){
   const q = query.trim().toLowerCase();
   const overview = active==='all' && !q;
   topEl.style.display = overview ? '' : 'none';
-  unitsEl.style.display = overview ? '' : 'none';
+  unitsEl.style.display = '';   // قسم الوحدات يبقى ظاهراً في كل الأوضاع
   if(overview){ faqEl.innerHTML=''; return; }
   const cats = DATA.filter(c=>active==='all'||active==='allq'||c.id===active)
     .map(c=>({...c, items:c.items.filter(i=>!q||Q(i).toLowerCase().includes(q)||A(i).toLowerCase().includes(q))}))
